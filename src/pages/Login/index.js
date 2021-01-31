@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles.scss";
 
 import { Link } from "wouter";
@@ -7,6 +7,21 @@ import dividerCard from "../../assets/images/card-divider.png";
 import footerImgLogin from "../../assets/images/login-footer-img.png";
 
 const Login = () => {
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+
+  function handleInputChange(event) {
+    const { value, name } = event.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  }
+
+  function submitForm(event) {
+    event.preventDefault();
+    console.log(form);
+  }
+
   return (
     <div className="login-wrapper">
       <h1 className="title">VinnBox</h1>
@@ -15,17 +30,31 @@ const Login = () => {
         <h2 className="title">Faça login</h2>
 
         <div className="body">
-          <form className="form-group">
+          <form onSubmit={submitForm} className="form-group">
             <label htmlFor="email">E-mail</label>
-            <input type="text" id="email" placeholder="Digite seu e-mail" />
+            <input
+              type="text"
+              name="email"
+              id="email"
+              placeholder="Digite seu e-mail"
+              value={form.email}
+              onChange={handleInputChange}
+            />
 
             <label htmlFor="pass">Senha</label>
-            <input type="password" id="pass" placeholder="Digite sua senha" />
+            <input
+              type="password"
+              name="password"
+              id="pass"
+              placeholder="Digite sua senha"
+              value={form.password}
+              onChange={handleInputChange}
+            />
 
             <Link href="/login" className="forgot-pass-link">
               Esqueceu a senha ?
             </Link>
-            <button type="button">Entrar</button>
+            <button type="submit">Entrar</button>
           </form>
 
           <img className="img-divider" src={dividerCard} alt="divider" />
