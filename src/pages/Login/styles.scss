@@ -16,6 +16,7 @@
 
   > .card {
     position: relative;
+    z-index: 5;
     width: 100%;
     max-width: 550px;
     height: max-content;
@@ -39,6 +40,7 @@
       img.img-divider {
         object-fit: contain;
         max-width: 80%;
+        min-width: 250px;
         margin: 0.5rem auto;
       }
 
@@ -59,7 +61,6 @@
     > img.aside-img {
       object-fit: contain;
       position: absolute;
-      z-index: 5;
       top: 50%;
       &.right {
         transform: translateY(-50%);
@@ -115,10 +116,12 @@
       font-weight: bold;
       font-size: 20px;
       color: #fff;
-      width: 50%;
-      max-width: 270px;
+      width: 100%;
+      max-width: 250px;
+      min-width: max-content;
       height: 42px;
       margin: 0 auto;
+      padding: 0 2rem;
       margin-bottom: 1rem;
       background-color: #ff8484;
       &:hover {
@@ -131,8 +134,35 @@
   > .footer-img {
     object-fit: contain;
     position: absolute;
+    width: 50vw;
+    max-width: 272px;
+    min-width: 200px;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .login-wrapper {
+    > h1.title {
+      font-size: 32px;
+    }
+    > .card {
+      padding: 1.5rem 2rem;
+      border-radius: 0;
+
+      > h2.title {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+@media (max-height: 760px) {
+  .login-wrapper {
+    > .footer-img {
+      display: none;
+    }
   }
 }
