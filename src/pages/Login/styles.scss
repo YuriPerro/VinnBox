@@ -91,11 +91,14 @@
       height: 55px;
       margin-bottom: 1rem;
       padding: 5px 10px;
-      border-radius: 5px;
       border: solid 1px #f9f9f9;
+      border-radius: 5px;
       background-color: #fff;
       box-shadow: 0 0 2px rgb(87, 87, 87);
-
+      &:hover {
+        transition: border-color ease 200ms;
+        border-color: #9c9c9c;
+      }
       &::placeholder {
         color: rgba(0, 0, 0, 0.3);
       }
