@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./styles.scss";
 
 import { Link } from "wouter";
+import { BaseButton } from "../../components";
 import asideImgCard from "../../assets/images/card-bg.png";
 import dividerCard from "../../assets/images/card-divider.png";
 import footerImgLogin from "../../assets/images/login-footer-img.png";
@@ -54,7 +55,7 @@ const Login = () => {
             <Link href="/login" className="forgot-pass-link">
               Esqueceu a senha ?
             </Link>
-            <button type="submit">Entrar</button>
+            <BaseButton type={"submit"}>Entrar</BaseButton>
           </form>
 
           <img className="img-divider" src={dividerCard} alt="divider" />
