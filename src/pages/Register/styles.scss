@@ -1,0 +1,9 @@
+@import "../../assets/styles/theme.scss";
+
+.register-wrapper {
+  @include page-wrapper;
+  background-color: $secondary-clr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
