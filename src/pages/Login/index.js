@@ -61,7 +61,7 @@ const Login = () => {
 
           <span className="bottom-text">
             Não possui uma conta?&nbsp;
-            <Link href="/login" className="sign-up-link">
+            <Link href="/register" className="sign-up-link">
               Crie aqui.
             </Link>
           </span>
