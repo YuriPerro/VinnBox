@@ -68,11 +68,26 @@ const Login = () => {
           </span>
         </div>
 
-        <img className="aside-img right" src={asideImgCard} alt="" />
-        <img className="aside-img left" src={asideImgCard} alt="" />
+        <img
+          draggable="false"
+          className="aside-img right"
+          src={asideImgCard}
+          alt="background draw"
+        />
+        <img
+          draggable="false"
+          className="aside-img left"
+          src={asideImgCard}
+          alt="background draw"
+        />
       </div>
 
-      <img className="footer-img" src={footerImgLogin} alt="" />
+      <img
+        draggable="false"
+        className="footer-img"
+        src={footerImgLogin}
+        alt="background draw"
+      />
     </div>
   );
 };
