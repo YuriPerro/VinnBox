@@ -1,0 +1,23 @@
+$primary-clr: #ff8484;
+$secondary-clr: #fffbeb;
+
+@mixin page-wrapper {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  animation: pageFadeIn ease 0.8s;
+}
+
+@keyframes pageFadeIn {
+  from {
+    transform: translateY(-10%);
+    height: 150vh;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    height: 100vh;
+    transform: translateY(0);
+  }
+}
