@@ -58,10 +58,14 @@
       }
     }
 
-    > img.aside-img {
+    > div.aside-bg-img {
       object-fit: contain;
       position: absolute;
       top: 50%;
+      width: 50vw;
+      height: 355px;
+      background-image: url("../../assets/images/card-bg.png");
+      background-repeat: repeat-x;
       &.right {
         transform: translateY(-50%);
         left: 100%;

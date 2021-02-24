@@ -3,7 +3,6 @@ import "./styles.scss";
 
 import { Link } from "wouter";
 import { BaseButton } from "../../components";
-import asideImgCard from "../../assets/images/card-bg.png";
 import dividerCard from "../../assets/images/card-divider.png";
 import footerImgLogin from "../../assets/images/login-footer-img.png";
 
@@ -68,18 +67,8 @@ const Login = () => {
           </span>
         </div>
 
-        <img
-          draggable="false"
-          className="aside-img right"
-          src={asideImgCard}
-          alt="background draw"
-        />
-        <img
-          draggable="false"
-          className="aside-img left"
-          src={asideImgCard}
-          alt="background draw"
-        />
+        <div draggable="false" className="aside-bg-img right" />
+        <div draggable="false" className="aside-bg-img left" />
       </div>
 
       <img
