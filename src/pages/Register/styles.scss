@@ -62,22 +62,6 @@
         }
       }
     }
-
-    > div.aside-bg-img {
-      object-fit: contain;
-      position: absolute;
-      top: 50%;
-      width: 50vw;
-      height: 355px;
-      &.right {
-        transform: translateY(-50%);
-        left: 100%;
-      }
-      &.left {
-        left: 0;
-        transform: translate(-100%, -50%) scaleX(-1);
-      }
-    }
   }
 
   > .card > .body > form.form-group {
@@ -128,11 +112,9 @@
   }
 
   > .footer-img {
-    object-fit: contain;
-
-    width: 50vw;
-    max-width: 272px;
-    min-width: 200px;
+    position: absolute;
     bottom: 0;
+    width: 20vw;
+    max-width: 250px;
   }
 }
