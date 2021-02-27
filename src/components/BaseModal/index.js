@@ -16,17 +16,7 @@ const BaseModal = (props) => {
             </button>
           </header>
 
-<<<<<<< HEAD
-          <main>{children}</main>
-
-          <footer>
-            <BaseButton onClick={() => setVisibility()}>
-              Criar template
-            </BaseButton>
-          </footer>
-=======
           {children}
->>>>>>> 3c4a967efb761b3c974a8c967b5d6c7cb96298c2
         </div>
       </div>
     )
