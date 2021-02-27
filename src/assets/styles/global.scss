@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+@import "../../assets/styles/theme.scss";
 
 * {
   margin: 0;
@@ -19,6 +20,7 @@ body {
   width: 100%;
   color: #000;
   overflow: hidden;
+  background: $secondary-clr;
 }
 
 a {
