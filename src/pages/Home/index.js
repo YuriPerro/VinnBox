@@ -1,26 +1,55 @@
 import React, { useState } from "react";
-import { Search, SideBar } from "../../components";
-import taskIcon from '../../assets/icons/taskIcon.svg';
-
 import "./styles.scss";
 
-function Home() {
+import { Search, SideBar, BaseModal } from "../../components";
+import taskIcon from "../../assets/icons/taskIcon.svg";
+import ContentModalTemplate from "./ContentModalTemplate";
+const emptyTemplateForm = { name: "", description: "", color: "#ff9c9c" };
 
-  const [templates, setTemplates] = useState({})
+function Home() {
+  const [templates, setTemplates] = useState([]);
+  const [templateForm, setTemplateForm] = useState(emptyTemplateForm);
+  const [mdVisibility, setMdVisibility] = useState(false);
+
+  function handleTemplateFormChange(event) {
+    const { value, name } = event.target;
+    setTemplateForm((prev) => ({ ...prev, [name]: value }));
+  }
+
+  function handleSubmitTemplateForm() {
+    if (!templateForm.name || !templateForm.color) {
+      alert("Campo nome é obrigatório!");
+      return;
+    }
+
+    setTemplates([...templates, templateForm]);
+    setMdVisibility(false);
+    setTemplateForm(emptyTemplateForm);
+  }
 
   return (
     <div className="home-wrapper">
-      <SideBar />
+      <SideBar openModal={() => setMdVisibility(true)} />
       <Search />
+
+      <BaseModal visibility={mdVisibility} setVisibility={setMdVisibility}>
+        <ContentModalTemplate
+          form={templateForm}
+          onChangeForm={handleTemplateFormChange}
+          onSubmitForm={handleSubmitTemplateForm}
+        />
+      </BaseModal>
 
       <section>
         <div className="div-templates">
           <h2> Seus templates </h2>
-          {Object.values(templates).length == 0 ?
+          {templates.length === 0 ? (
             <p> Você ainda não possui templates.</p>
-            :
-            <div> {templates} </div>
-          }
+          ) : (
+            templates.map((template) => (
+              <p key={template.name}>Template: {template.name}</p>
+            ))
+          )}
         </div>
 
         <div className="div-cards">
@@ -28,7 +57,7 @@ function Home() {
         </div>
       </section>
 
-      <img src={taskIcon} alt="taskicon" />
+      <img src={taskIcon} alt="task icon" />
     </div>
   );
 }

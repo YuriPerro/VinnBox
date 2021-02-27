@@ -1,8 +1,6 @@
 import React from "react";
 import "./styles.scss";
 
-import { BaseButton } from "../index";
-
 const BaseModal = (props) => {
   const { visibility = false, setVisibility, children } = props;
 
@@ -18,13 +16,7 @@ const BaseModal = (props) => {
             </button>
           </header>
 
-          <main>{children}</main>
-
-          <footer>
-            <BaseButton onClick={() => setVisibility(false)}>
-              Criar template
-            </BaseButton>
-          </footer>
+          {children}
         </div>
       </div>
     )
