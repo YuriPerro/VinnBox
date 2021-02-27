@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./styles.scss";
 
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { BaseButton } from "../../components";
 import dividerCard from "../../assets/images/card-divider.png";
 import footerImgLogin from "../../assets/images/login-footer-img.png";
@@ -11,6 +11,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [, setLocation] = useLocation();
 
   function handleInputChange(event) {
     const { value, name } = event.target;
@@ -20,6 +21,7 @@ const Login = () => {
   function submitForm(event) {
     event.preventDefault();
     console.log(form);
+    setLocation("/home");
   }
 
   return (
