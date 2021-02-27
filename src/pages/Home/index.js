@@ -32,7 +32,11 @@ function Home() {
       <SideBar openModal={() => setMdVisibility(true)} />
       <Search />
 
-      <BaseModal visibility={mdVisibility} setVisibility={setMdVisibility}>
+      <BaseModal
+        title={"Adicionar Template"}
+        visibility={mdVisibility}
+        setVisibility={setMdVisibility}
+      >
         <ContentModalTemplate
           form={templateForm}
           onChangeForm={handleTemplateFormChange}
