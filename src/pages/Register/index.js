@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./styles.scss";
 
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { BaseButton } from "../../components";
 import dividerCard from "../../assets/images/card-divider.png";
 import footerImgLogin from "../../assets/images/login-footer-img.png";
@@ -9,15 +9,17 @@ import footerImgLogin from "../../assets/images/login-footer-img.png";
 const Cadastro = () => {
 
   const [form, setForm] = useState({
+    nome: "",
     email: "",
     password: "",
     confimation: "",
   });
-
+  const [, setLocation] = useLocation();
 
   function submitForm(event) {
     event.preventDefault();
     console.log(form);
+    setLocation("/home");
   }
 
   return (
@@ -28,6 +30,13 @@ const Cadastro = () => {
         <h2 className="title">Cadastre-se</h2>
         <div className="body">
           <form onSubmit={submitForm} className="form-group">
+            <label htmlFor="email">Nome</label>
+            <input
+              type="text"
+              name="nome"
+              id="nome"
+              placeholder="Digite seu nome"
+            />
             <label htmlFor="email">E-mail</label>
             <input
               type="text"
