@@ -1,0 +1,32 @@
+.modal .custom-color-picker {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+
+  > .color {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.411);
+    cursor: pointer;
+    transition: all 200ms;
+    &:hover {
+      box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.411);
+      transform: scale(1.08);
+    }
+
+    &.selected::after {
+      content: "L";
+      color: #000;
+      font-size: 20px;
+      position: absolute;
+      font-weight: bold;
+      top: 50%;
+      left: 50%;
+      font-family: arial;
+      transform: scaleX(-1) rotate(-35deg) translate(90%, -30%);
+    }
+  }
+}

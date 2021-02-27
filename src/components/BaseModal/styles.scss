@@ -59,7 +59,7 @@
 
   > .modal label {
     font-weight: bold;
-    padding-left: 2rem;
+    padding-left: 1.5rem;
     margin-bottom: 0.5rem;
   }
 
@@ -75,42 +75,5 @@
   > .modal input {
     height: 55px;
     border-radius: 9999px;
-  }
-
-  > .modal .custom-color-picker {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    padding: 0 2rem;
-
-    > .color {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.411);
-      cursor: pointer;
-      transition: all 200ms;
-
-      &:hover {
-        box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.411);
-        transform: scale(1.08);
-      }
-
-      &.red {
-        background-color: #ff9c9c;
-      }
-      &.green {
-        background-color: #daffd3;
-      }
-      &.yellow {
-        background-color: #ffe8ad;
-      }
-      &.purple {
-        background-color: #c1bcff;
-      }
-      &.gray {
-        background-color: #c4c4c4;
-      }
-    }
   }
 }

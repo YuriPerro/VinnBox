@@ -1,7 +1,9 @@
 import React from "react";
+import "./styles.scss";
 
 const BodyModalTemplate = (props) => {
   const { form, onChangeForm } = props;
+  const colors = ["#ff9c9c", "#daffd3", "#ffe8ad", "#c1bcff", "#c4c4c4"];
 
   function handleChangeColor(newValue) {
     onChangeForm({ target: { name: "color", value: newValue } });
@@ -30,26 +32,14 @@ const BodyModalTemplate = (props) => {
 
       <label>Cor</label>
       <div className="custom-color-picker">
-        <div
-          className="color red"
-          onClick={() => handleChangeColor("#ff9c9c")}
-        ></div>
-        <div
-          className="color green"
-          onClick={() => handleChangeColor("#daffd3")}
-        ></div>
-        <div
-          className="color yellow"
-          onClick={() => handleChangeColor("#ffe8ad")}
-        ></div>
-        <div
-          className="color purple"
-          onClick={() => handleChangeColor("#c1bcff")}
-        ></div>
-        <div
-          className="color gray"
-          onClick={() => handleChangeColor("#c4c4c4")}
-        ></div>
+        {colors.map((color) => (
+          <div
+            key={color}
+            className={`color ${color === form.color ? "selected" : ""}`}
+            style={{ backgroundColor: color }}
+            onClick={() => handleChangeColor(color)}
+          />
+        ))}
       </div>
     </>
   );
