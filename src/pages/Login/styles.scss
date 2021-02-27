@@ -2,7 +2,6 @@
 
 .login-wrapper {
   @include page-wrapper;
-  position: relative;
   display: flex;
   flex-direction: column;
   background-color: $secondary-clr;
