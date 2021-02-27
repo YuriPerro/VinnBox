@@ -1,0 +1,116 @@
+.modal-overlay {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.335);
+  transform: all 500ms ease;
+
+  > .modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 1rem 3rem;
+    width: 600px;
+    height: 700px;
+    z-index: 100;
+    border-radius: 10px;
+
+    > header {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+      font-size: 20px;
+      text-align: center;
+
+      > .btn-close {
+        background-color: transparent;
+        font-size: inherit;
+        font-weight: bold;
+        position: absolute;
+        top: 0;
+        left: 100%;
+      }
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 1rem 0;
+      font-size: 18px;
+    }
+
+    footer {
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+    }
+  }
+
+  > .modal label {
+    font-weight: bold;
+    padding-left: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  > .modal input,
+  textarea {
+    font-size: 20px;
+    background-color: #f3f3f3;
+    border-radius: 15px;
+    padding: 10px 20px;
+    margin-bottom: 1.5rem;
+  }
+
+  > .modal input {
+    height: 55px;
+    border-radius: 9999px;
+  }
+
+  > .modal .custom-color-picker {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 2rem;
+
+    > .color {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.411);
+      cursor: pointer;
+      transition: all 200ms;
+
+      &:hover {
+        box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.411);
+        transform: scale(1.08);
+      }
+
+      &.red {
+        background-color: #ff9c9c;
+      }
+      &.green {
+        background-color: #daffd3;
+      }
+      &.yellow {
+        background-color: #ffe8ad;
+      }
+      &.purple {
+        background-color: #c1bcff;
+      }
+      &.gray {
+        background-color: #c4c4c4;
+      }
+    }
+  }
+}

@@ -29,9 +29,19 @@ a {
 }
 
 input,
-button {
+button,
+textarea {
   font-family: inherit;
   border: none;
+  resize: none;
+}
+
+input,
+select,
+textarea {
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.3);
+  }
 }
 
 button:hover {
