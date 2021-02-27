@@ -1,17 +1,20 @@
 @import "../../assets/styles/theme.scss";
 
-.container {
-    position: relative;
+.home-wrapper {
+  @include page-wrapper;
+  background: $secondary-clr;
+  height: 100%;
+  width: 100%;
+
+  > .content {
+    padding-left: 110px;
     display: flex;
     flex-direction: column;
-    background: $secondary-clr;
-    height: 100%;
-    width: 100%;
 
     > h2 {
-        font-size: 36px;
-        font-weight: 200;
-        text-align: left;
-      }
-    
+      font-size: 36px;
+      font-weight: 200;
+      text-align: left;
+    }
+  }
 }
