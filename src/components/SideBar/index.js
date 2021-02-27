@@ -1,9 +1,9 @@
 import "./styles.scss";
 
-import sideBarIcon from '../../assets/icons/sideBarIcon.svg'
-import homeIcon from '../../assets/icons/homeIcon.svg'
-import plusIcon from '../../assets/icons/plusIcon.svg'
-import logoutIcon from '../../assets/icons/logoutIcon.svg'
+import sideBarIcon from "../../assets/icons/sideBarIcon.svg";
+import homeIcon from "../../assets/icons/homeIcon.svg";
+import plusIcon from "../../assets/icons/plusIcon.svg";
+import logoutIcon from "../../assets/icons/logoutIcon.svg";
 
 export default function SideBar() {
     return (

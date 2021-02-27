@@ -1,10 +1,11 @@
 @import "../../assets/styles/theme.scss";
 
-.login-wrapper {
+.profile {
   @include page-wrapper;
+  background-color: $secondary-clr;
   display: flex;
   flex-direction: column;
-  background-color: $secondary-clr;
+  align-items: center;
   padding-top: 2rem;
 
   > h1.title {
@@ -42,7 +43,12 @@
         min-width: 250px;
         margin: 0.5rem auto;
       }
-
+      span.bottom-text-terms {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        color: #d87272;
+      }
       span.bottom-text {
         margin-top: 1rem;
         margin-bottom: 2rem;
@@ -63,8 +69,6 @@
       top: 50%;
       width: 50vw;
       height: 355px;
-      background-image: url("../../assets/images/card-bg.png");
-      background-repeat: repeat-x;
       &.right {
         transform: translateY(-50%);
         left: 100%;
@@ -125,36 +129,10 @@
 
   > .footer-img {
     object-fit: contain;
-    position: absolute;
+
     width: 50vw;
     max-width: 272px;
     min-width: 200px;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-@media screen and (max-width: 530px) {
-  .login-wrapper {
-    > h1.title {
-      font-size: 32px;
-    }
-    > .card {
-      padding: 1.5rem 2rem;
-      border-radius: 0;
-
-      > h2.title {
-        font-size: 30px;
-      }
-    }
-  }
-}
-
-@media (max-height: 760px) {
-  .login-wrapper {
-    > .footer-img {
-      display: none;
-    }
   }
 }

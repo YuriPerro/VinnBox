@@ -30,7 +30,7 @@ function Home() {
 
       <img src={taskIcon} alt="taskicon" />
     </div>
-  )
+  );
 }
 
 export default Home;
