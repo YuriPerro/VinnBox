@@ -7,6 +7,7 @@
   z-index: 50;
   background-color: rgba(0, 0, 0, 0.335);
   transform: all 500ms ease;
+  animation: fadeIn 0.2s ease;
 
   > .modal {
     display: flex;
@@ -23,6 +24,7 @@
     height: 700px;
     z-index: 100;
     border-radius: 10px;
+    animation: zoomIn 0.2s ease;
 
     > header {
       position: relative;

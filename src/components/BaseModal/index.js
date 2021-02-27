@@ -1,8 +1,6 @@
 import React from "react";
 import "./styles.scss";
 
-import { BaseButton } from "../index";
-
 const BaseModal = (props) => {
   const { visibility = false, setVisibility, children } = props;
 
@@ -18,6 +16,7 @@ const BaseModal = (props) => {
             </button>
           </header>
 
+<<<<<<< HEAD
           <main>{children}</main>
 
           <footer>
@@ -25,6 +24,9 @@ const BaseModal = (props) => {
               Criar template
             </BaseButton>
           </footer>
+=======
+          {children}
+>>>>>>> 3c4a967efb761b3c974a8c967b5d6c7cb96298c2
         </div>
       </div>
     )
