@@ -5,7 +5,10 @@ import homeIcon from "../../assets/icons/homeIcon.svg";
 import plusIcon from "../../assets/icons/plusIcon.svg";
 import logoutIcon from "../../assets/icons/logoutIcon.svg";
 
-export default function SideBar() {
+export default function SideBar(props) {
+    const { goToNavigate } = props
+
+    
     return (
         <div className="sidebar-container">
             <input
@@ -20,6 +23,7 @@ export default function SideBar() {
             />
             <input
                 type="image"
+                onClick={() => goToNavigate('ADD_TEMPLATE')}
                 src={plusIcon}
                 alt="plus"
             />
