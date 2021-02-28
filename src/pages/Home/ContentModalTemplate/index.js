@@ -23,7 +23,7 @@ const ContentModalTemplate = (props) => {
           value={form.name}
           onChange={onChangeForm}
         />
-        <label htmlFor="description">Nome</label>
+        <label htmlFor="description">Descrição</label>
         <textarea
           id="description"
           name="description"

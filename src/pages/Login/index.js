@@ -5,6 +5,7 @@ import { Link, useLocation } from "wouter";
 import { BaseButton } from "../../components";
 import dividerCard from "../../assets/images/card-divider.png";
 import footerImgLogin from "../../assets/images/login-footer-img.png";
+import VinnBoxLogo from '../../assets/images/VINNBOX.png';
 
 const Login = () => {
   const [form, setForm] = useState({
@@ -26,7 +27,7 @@ const Login = () => {
 
   return (
     <div className="login-wrapper">
-      <h1 className="title">VinnBox</h1>
+      <img src={VinnBoxLogo} width={90} height={60} style={{ alignSelf: "center" }} />
 
       <div className="card">
         <h2 className="title">Faça login</h2>

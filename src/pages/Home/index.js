@@ -51,24 +51,26 @@ function Home() {
       </BaseModal>
 
       <section>
-        <div className="div-templates">
+        <div className="div-templates-container">
           <h2> Seus templates </h2>
-          {templates.length === 0 ? (
-            <p> Você ainda não possui templates.</p>
-          ) : (
-            templates.map((template, i) => (
-              <div
-                key={template.name + i}
-                className="card-template"
-                onClick={() => redirectToTemplate(template)}
-              >
-                <p>Template: {template.name} </p>
-                <p>description: {template.description}</p>
-                <p>color: {template.color}</p>
-                <br />
-              </div>
-            ))
-          )}
+          <div className="div-templates">
+            {templates.length === 0 ? (
+              <p> Você ainda não possui templates.</p>
+            ) : (
+                templates.map((template, i) => (
+                  <div
+                    key={template.name + i}
+                    className="card-template"
+                    style={{ background: template.color }}
+                    onClick={() => redirectToTemplate(template)}
+                  >
+                    <p className="card-name">{template.name} </p>
+                    <p className="card-description">{template.description}</p>
+                    <br />
+                  </div>
+                ))
+              )}
+          </div>
         </div>
 
         <div className="div-cards">
