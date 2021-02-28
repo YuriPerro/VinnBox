@@ -1,4 +1,5 @@
 import "./styles.scss";
+import { Link } from "wouter";
 
 import sideBarIcon from "../../assets/icons/sideBarIcon.svg";
 import homeIcon from "../../assets/icons/homeIcon.svg";
@@ -13,7 +14,9 @@ export default function SideBar(props) {
       <input type="image" src={homeIcon} alt="home" />
       <input type="image" src={plusIcon} onClick={openModal} alt="plus" />
       <div className="container-bottom">
-        <input type="image" src={logoutIcon} alt="logout" />
+        <Link href="/login">
+          <input type="image" src={logoutIcon} alt="logout" />
+        </Link>
         <div className="line-bottom" />
         <h3>VB</h3>
       </div>
