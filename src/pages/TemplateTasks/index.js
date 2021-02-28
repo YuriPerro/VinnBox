@@ -37,6 +37,7 @@ const TemplateTasks = () => {
   return (
     template && (
       <div className="template-tasks-wrapper">
+        <SideBar />
         <Search />
         <h1>Revisão</h1>
         name: {template.name} <br />

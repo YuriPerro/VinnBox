@@ -2,6 +2,8 @@
 
 .template-tasks-wrapper {
   @include page-wrapper;
+  padding-left: 130px;
+  padding-right: 20px;
 
   #left {
     float: left;

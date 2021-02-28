@@ -1,29 +1,28 @@
 @import "../../assets/styles/theme.scss";
 
-.search-container{
-    margin-left: 50%;
-    margin-top: 2rem;
-    
-    transform: translateX(-40%);
+.search-container {
+  margin-left: 50%;
+  margin-top: 2rem;
+  transform: translateX(-40%);
 
-    > img {
-        position: absolute;
-        margin-top: 9px;
-        margin-left: 7px;
-        opacity: .5;
-    }
+  > img {
+    position: absolute;
+    margin-top: 9px;
+    margin-left: 7px;
+    opacity: 0.5;
+  }
 
-    > input {
-        padding: 10px;
-        padding-left: 35px;
+  > input {
+    padding: 10px;
+    padding-left: 35px;
 
-        background: transparent;
-        border: 1px solid gray;
-        border-radius: 50px;
+    background: transparent;
+    border: 1px solid gray;
+    border-radius: 50px;
 
-        max-width: 500px !important;
-        min-width: 500px;
-        max-height: 40px !important;
-        min-height: 40px;
-    }
+    max-width: 500px !important;
+    min-width: 500px;
+    max-height: 40px !important;
+    min-height: 40px;
+  }
 }
