@@ -3,7 +3,7 @@ import "./styles.scss";
 
 import { Link, useLocation } from "wouter";
 
-import SideBar from '../../components/SideBar/index';
+import { Search, SideBar, BaseModal } from "../../components";
 import { BaseButton } from "../../components";
 import footerImgLogin from "../../assets/images/login-footer-img.png";
 
