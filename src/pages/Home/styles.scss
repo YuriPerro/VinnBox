@@ -21,8 +21,12 @@
     gap: 1.75rem;
     align-content: center;
     
-    margin-left: 130px;
   }
+}
+
+.div-templates-container {
+  margin-left: 130px;
+  margin-top: 35px;
 }
 
 .div-templates {
@@ -36,6 +40,7 @@
 }
 
 .div-cards {
+  margin-left: 130px;
   margin-top: 20px;
 
   > h2 {
@@ -44,6 +49,7 @@
 }
 
 .card-template {
+  cursor: pointer;
   margin-top: 15px;
   margin-right: 15px;
   border-radius: 10px;
