@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRoute } from "wouter";
+import "./styles.scss";
+import dividerCard from "../../assets/images/card-divider-vertical.png";
 
 const TemplateTasks = () => {
   const [, params] = useRoute("/template/:template");
@@ -16,7 +18,17 @@ const TemplateTasks = () => {
         name: {template.name} <br />
         description: {template.description} <br />
         color: {template.color} <br />
+        <div>
+        <div id="wrapper">
+          <div id="left">Left side div </div>
+          <div id="center">Right side div</div>
+          <div id="right">Right side div</div>
+        </div>
+          
+        </div>
       </div>
+
+      
     )
   );
 };
