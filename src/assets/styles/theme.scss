@@ -7,17 +7,15 @@ $secondary-clr: #fffbeb;
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
-  animation: pageFadeIn ease 0.8s;
+  animation: pageFadeIn 0.7s;
 }
 
 @keyframes pageFadeIn {
   from {
     transform: translateY(-10%);
     height: 150vh;
-    opacity: 0;
   }
   to {
-    opacity: 1;
     height: 100vh;
     transform: translateY(0);
   }
