@@ -35,6 +35,9 @@
       text-align: center;
 
       > .btn-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background-color: transparent;
         font-size: inherit;
         font-weight: bold;
@@ -50,7 +53,7 @@
       flex-direction: column;
       overflow-y: auto;
       flex: 1;
-      padding: 1rem 0;
+      padding: 1rem 0.2rem;
       font-size: 18px;
     }
 
