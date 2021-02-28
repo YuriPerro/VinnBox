@@ -1,4 +1,8 @@
+@import "../../assets/styles/theme.scss";
+
 .template-tasks-wrapper {
+  @include page-wrapper;
+
   #left {
     float: left;
     width: 33%;
