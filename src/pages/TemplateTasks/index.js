@@ -2,15 +2,16 @@ import React, { useEffect, useState } from "react";
 import "./styles.scss";
 
 import { useRoute } from "wouter";
+import { useStore } from "../../store";
 import ContentModalTask from "./ContentModalTask";
 import dividerCard from "../../assets/images/card-divider-vertical.png";
 import { Search, SideBar, BaseModal } from "../../components";
 const emptyTemplateForm = { name: "", category: "A fazer" };
 
 const TemplateTasks = () => {
-  const [, params] = useRoute("/template/:template");
+  const { templates } = useStore();
+  const [, params] = useRoute("/template/:index");
   const [template, setTemplate] = useState(null);
-  const [tasks, setTasks] = useState([]);
   const [taskForm, setTaskForm] = useState(emptyTemplateForm);
   const [mdVisibility, setMdVisibility] = useState(false);
 
@@ -25,19 +26,22 @@ const TemplateTasks = () => {
       return;
     }
 
-    setTasks([...tasks, taskForm]);
+    //add task no template
     setMdVisibility(false);
     setTaskForm(emptyTemplateForm);
   }
 
   useEffect(() => {
-    setTemplate(JSON.parse(decodeURIComponent(params.template)));
-  }, [params.template]);
+    if (params && templates[params.index]) {
+      setTemplate({ ...templates[parseInt(params.index)] });
+    }
+    // eslint-disable-next-line
+  }, [templates]);
 
   return (
     template && (
       <div className="template-tasks-wrapper">
-        <SideBar />
+        <SideBar openModal={() => setMdVisibility(true)} />
         <Search />
         <h1>Revisão</h1>
         name: {template.name} <br />
@@ -75,8 +79,6 @@ const TemplateTasks = () => {
             onSubmitForm={handleSubmitTemplateForm}
           />
         </BaseModal>
-        {/* btn de teste do modal */}
-        <button onClick={() => setMdVisibility(true)}>modal add tarefa</button>
       </div>
     )
   );

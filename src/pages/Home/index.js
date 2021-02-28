@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import "./styles.scss";
 
 import { useLocation } from "wouter";
+import { useStore } from "../../store";
 import { Search, SideBar, BaseModal } from "../../components";
 import taskIcon from "../../assets/icons/taskIcon.svg";
 import ContentModalTemplate from "./ContentModalTemplate";
 const emptyTemplateForm = { name: "", description: "", color: "#ff9c9c" };
 
 function Home() {
+  const { templates, setTemplates } = useStore();
   const [, setLocation] = useLocation();
-  const [templates, setTemplates] = useState([]);
   const [templateForm, setTemplateForm] = useState(emptyTemplateForm);
   const [mdVisibility, setMdVisibility] = useState(false);
 
@@ -29,8 +30,8 @@ function Home() {
     setTemplateForm(emptyTemplateForm);
   }
 
-  function redirectToTemplate(template) {
-    setLocation(`/template/${encodeURIComponent(JSON.stringify(template))}`);
+  function redirectToTemplate(templateIndex) {
+    setLocation(`/template/${templateIndex}`);
   }
 
   return (
@@ -58,10 +59,10 @@ function Home() {
               <p> Você ainda não possui templates.</p>
             ) : (
               <ul className="list-templates">
-                {templates.map((template, i) => (
+                {templates.map((template, index) => (
                   <div
-                    key={template.name + i}
-                    onClick={() => redirectToTemplate(template)}
+                    key={template.name + index}
+                    onClick={() => redirectToTemplate(index)}
                     className="card-template"
                   >
                     <span
