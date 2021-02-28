@@ -57,19 +57,24 @@ function Home() {
             {templates.length === 0 ? (
               <p> Você ainda não possui templates.</p>
             ) : (
-                templates.map((template, i) => (
+              <ul className="list-templates">
+                {templates.map((template, i) => (
                   <div
                     key={template.name + i}
-                    className="card-template"
-                    style={{ background: template.color }}
                     onClick={() => redirectToTemplate(template)}
+                    className="card-template"
                   >
-                    <p className="card-name">{template.name} </p>
-                    <p className="card-description">{template.description}</p>
-                    <br />
+                    <span
+                      className="name"
+                      style={{ background: template.color }}
+                    >
+                      {template.name}
+                    </span>
+                    <p className="description">{template.description}</p>
                   </div>
-                ))
-              )}
+                ))}
+              </ul>
+            )}
           </div>
         </div>
 
