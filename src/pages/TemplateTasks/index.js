@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./styles.scss";
 
 import { useRoute } from "wouter";
-import { BaseModal } from "../../components";
 import ContentModalTask from "./ContentModalTask";
+import dividerCard from "../../assets/images/card-divider-vertical.png";
+import { Search, SideBar, BaseModal } from "../../components";
 const emptyTemplateForm = { name: "", category: "A fazer" };
 
 const TemplateTasks = () => {
@@ -36,9 +37,32 @@ const TemplateTasks = () => {
   return (
     template && (
       <div className="template-tasks-wrapper">
-        <h1>{template.name}</h1>
-        {template.description && <p>Descrição: {template.description}</p>}
-
+        <Search />
+        <h1>Revisão</h1>
+        name: {template.name} <br />
+        description: {template.description} <br />
+        color: {template.color} <br />
+        <div>
+          <div id="wrapper">
+            <div id="left"> A fazer </div>
+            <div id="center">Em andamento</div>
+            <div id="right">Concluído</div>
+            <div id="left">
+              {" "}
+              <img
+                className="img-divider"
+                src={dividerCard}
+                alt="divider"
+              />{" "}
+            </div>
+            <div id="center">
+              <img className="img-divider" src={dividerCard} alt="divider" />
+            </div>
+            <div id="right">
+              <img className="img-divider" src={dividerCard} alt="divider" />
+            </div>
+          </div>
+        </div>
         <BaseModal
           title={"Adicionar Tarefa"}
           visibility={mdVisibility}
@@ -52,13 +76,6 @@ const TemplateTasks = () => {
         </BaseModal>
         {/* btn de teste do modal */}
         <button onClick={() => setMdVisibility(true)}>modal add tarefa</button>
-        <div>
-          <div id="wrapper">
-            <div id="left">Left side div </div>
-            <div id="center">Right side div</div>
-            <div id="right">Right side div</div>
-          </div>
-        </div>
       </div>
     )
   );
