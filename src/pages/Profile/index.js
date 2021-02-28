@@ -2,8 +2,15 @@ import React from "react";
 import "./styles.scss";
 
 import SideBar from '../../components/SideBar/index';
+import { BaseButton } from "../../components";
 
 function Profile() {
+
+  function submitForm(event) {
+    event.preventDefault();
+    console.log("OK");
+  }
+
   return (
     <div className="profile">
       <h5> Jaqueline

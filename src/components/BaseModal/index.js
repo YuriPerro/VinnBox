@@ -11,12 +11,12 @@ const BaseModal = (props) => {
 
   return (
     visibility && (
-      <div className="modal-overlay" onClick={() => setVisibility(false)}>
+      <div className="modal-overlay" onClick={() => setVisibility()}>
         <div className="modal" onClick={(e) => e.stopPropagation()}>
           <header>
             <h2>{title}</h2>
 
-            <button className="btn-close" onClick={() => setVisibility(false)}>
+            <button className="btn-close" onClick={() => setVisibility()}>
               &#x2715;
             </button>
           </header>
