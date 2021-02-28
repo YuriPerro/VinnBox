@@ -1,22 +1,36 @@
 import React from "react";
 import "./styles.scss";
 
+import { Link, useLocation } from "wouter";
+
 import SideBar from '../../components/SideBar/index';
 import { BaseButton } from "../../components";
+import footerImgLogin from "../../assets/images/login-footer-img.png";
 
 function Profile() {
-
+  const [, setLocation] = useLocation();
   function submitForm(event) {
     event.preventDefault();
     console.log("OK");
+    setLocation("/home");
   }
 
   return (
-    <div className="profile">
-      <h5> Jaqueline
-      </h5>
 
-      <SideBar/>
+    
+    <div className="profile">
+      
+      <img
+        draggable="false"
+        className="footer-img"
+        src={footerImgLogin}
+        alt="background draw"
+      />
+
+      <h3> 
+      </h3>
+
+      <h7>Usuário desde: 2020</h7>
 
       <div className="card">
         <div className="body">
@@ -57,13 +71,8 @@ function Profile() {
               type="confirmation"
               name="confirmation"
               id="conf"
-              placeholder="Digite sua senha"
+              placeholder=""
             />
-
-            <span className="bottom-text">
-              Ao se cadastrar, você confirma que leu e aceitou nossos&nbsp;
-              Termos de Serviço e Política de Privacidade.
-            </span>
 
             <BaseButton type={"submit"}>Salvar Alterações</BaseButton>
           </form>
