@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./styles.scss";
 
+import { useLocation } from "wouter";
 import { Search, SideBar, BaseModal } from "../../components";
 import taskIcon from "../../assets/icons/taskIcon.svg";
 import ContentModalTemplate from "./ContentModalTemplate";
 const emptyTemplateForm = { name: "", description: "", color: "#ff9c9c" };
 
 function Home() {
+  const [, setLocation] = useLocation();
   const [templates, setTemplates] = useState([]);
   const [templateForm, setTemplateForm] = useState(emptyTemplateForm);
   const [mdVisibility, setMdVisibility] = useState(false);
@@ -25,6 +27,10 @@ function Home() {
     setTemplates([...templates, templateForm]);
     setMdVisibility(false);
     setTemplateForm(emptyTemplateForm);
+  }
+
+  function redirectToTemplate(template) {
+    setLocation(`/template/${encodeURIComponent(JSON.stringify(template))}`);
   }
 
   return (
@@ -50,8 +56,17 @@ function Home() {
           {templates.length === 0 ? (
             <p> Você ainda não possui templates.</p>
           ) : (
-            templates.map((template) => (
-              <p key={template.name}>Template: {template.name}</p>
+            templates.map((template, i) => (
+              <div
+                key={template.name + i}
+                className="card-template"
+                onClick={() => redirectToTemplate(template)}
+              >
+                <p>Template: {template.name} </p>
+                <p>description: {template.description}</p>
+                <p>color: {template.color}</p>
+                <br />
+              </div>
             ))
           )}
         </div>
