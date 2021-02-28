@@ -5,9 +5,12 @@ import sideBarIcon from "../../assets/icons/sideBarIcon.svg";
 import homeIcon from "../../assets/icons/homeIcon.svg";
 import plusIcon from "../../assets/icons/plusIcon.svg";
 import logoutIcon from "../../assets/icons/logoutIcon.svg";
+import { useState } from "react";
 
 export default function SideBar(props) {
   const { openModal } = props;
+  const [size, setSize] = useState(80)
+
   return (
     <div className="sidebar-container">
       <input type="image" src={sideBarIcon} alt="menu" />
