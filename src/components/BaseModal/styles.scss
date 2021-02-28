@@ -23,6 +23,7 @@
     width: 600px;
     z-index: 100;
     border-radius: 10px;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.4);
     animation: zoomIn 0.2s ease;
 
     > header {
@@ -38,8 +39,9 @@
         font-size: inherit;
         font-weight: bold;
         position: absolute;
-        top: 0;
+        top: -0.5rem;
         left: 100%;
+        padding: 0.5rem;
       }
     }
 
