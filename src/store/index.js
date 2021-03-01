@@ -3,6 +3,7 @@ import React, { createContext, useState, useContext } from "react";
 const StoreContext = createContext();
 
 export default function StoreProvider({ children }) {
+  const [recentTasks, setRecentTasks] = useState([]);
   const [templates, setTemplates] = useState([
     {
       name: "Dia a dia",
@@ -46,6 +47,7 @@ export default function StoreProvider({ children }) {
       newState[templateIndex].tasks.push(newTask);
       return newState;
     });
+    setRecentTasks([...recentTasks, newTask]);
   }
 
   return (
