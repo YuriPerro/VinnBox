@@ -10,7 +10,7 @@ import VinnBoxLogo from "../../assets/images/VINNBOX-BRANCA.png";
 
 export default function SideBar(props) {
   const { openModal } = props;
-  const [, setLocation] = useLocation();
+  const [location, setLocation] = useLocation();
 
   return (
     <div className="sidebar-container">
@@ -19,6 +19,7 @@ export default function SideBar(props) {
         type="image"
         src={homeIcon}
         alt="home"
+        className={location === "/home" ? "active" : ""}
         onClick={() => setLocation("/home")}
       />
       <input type="image" src={plusIcon} onClick={openModal} alt="plus" />

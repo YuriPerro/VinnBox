@@ -23,6 +23,14 @@
     width: 30px;
     height: 30px;
     outline: none;
+    transition: all ease 0.3s;
+
+    &:hover,
+    &.active {
+      border-radius: 50%;
+      background-color: #d87272;
+      box-shadow: 0 0 0px 8px #d87272;
+    }
   }
 }
 
@@ -39,6 +47,13 @@
     width: 35px;
     height: 35px;
     outline: none;
+    transition: all ease 0.3s;
+
+    &:hover {
+      border-radius: 50%;
+      background-color: #d87272;
+      box-shadow: 0 0 0px 8px #d87272;
+    }
   }
 
   > h3 {
