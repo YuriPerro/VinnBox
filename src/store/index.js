@@ -8,7 +8,21 @@ export default function StoreProvider({ children }) {
       name: "Dia a dia",
       description: "Tarefas do diárias",
       color: "#ff9c9c",
-      tasks: [],
+      tasks: [
+        {
+          name: "Fazer 1hr de exercícios",
+          category: "A fazer",
+        },
+        {
+          name: "Continuar o fluxo de trabalho",
+          category: "Em andamento",
+        },
+        {
+          name:
+            "Ler artigos científicos sobre o tema, fazer resumos e entregar a diretoria para aprovação",
+          category: "Concluído",
+        },
+      ],
     },
     {
       name: "Faculdade",

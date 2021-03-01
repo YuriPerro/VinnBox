@@ -49,42 +49,43 @@ const TemplateTasks = () => {
           <p>Descrição: {template.description}</p>
         </section>
 
-        <section className="task-titles">
-          <span>A fazer</span>
-          <span>Em andamento</span>
-          <span>Concluído</span>
-        </section>
+        <section className="task-titles"></section>
 
         <section className="kanban-wrapper">
           <div className="column to-do">
+            <span className="title">A fazer</span>
+
             <ul className="list-tasks">
               {template.tasks
                 .filter((task) => task.category === "A fazer")
                 .map((task, i) => (
                   <li key={i + task.name + task.category} className="item">
-                    {task.name}
+                    <button className="btn-options">...</button>• {task.name}
                   </li>
                 ))}
             </ul>
           </div>
           <div className="column doing">
             <ul className="list-tasks">
+              <span className="title">Em andamento</span>
+
               {template.tasks
                 .filter((task) => task.category === "Em andamento")
                 .map((task, i) => (
                   <li key={i + task.name + task.category} className="item">
-                    {task.name}
+                    <button className="btn-options">...</button>• {task.name}
                   </li>
                 ))}
             </ul>
           </div>
           <div className="column completed">
+            <span className="title">Concluído</span>
             <ul className="list-tasks">
               {template.tasks
                 .filter((task) => task.category === "Concluído")
                 .map((task, i) => (
                   <li key={i + task.name + task.category} className="item">
-                    {task.name}
+                    <button className="btn-options">...</button>• {task.name}
                   </li>
                 ))}
             </ul>
