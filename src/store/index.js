@@ -24,11 +24,22 @@ export default function StoreProvider({ children }) {
     },
   ]);
 
+  function addTask(templateIndex, newTask) {
+    if (!templates[templateIndex]) return;
+
+    setTemplates((prevState) => {
+      const newState = [...prevState];
+      newState[templateIndex].tasks.push(newTask);
+      return newState;
+    });
+  }
+
   return (
     <StoreContext.Provider
       value={{
         templates,
         setTemplates,
+        addTask,
       }}
     >
       {children}

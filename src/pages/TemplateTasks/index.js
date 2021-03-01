@@ -4,12 +4,11 @@ import "./styles.scss";
 import { useRoute } from "wouter";
 import { useStore } from "../../store";
 import ContentModalTask from "./ContentModalTask";
-import dividerCard from "../../assets/images/card-divider-vertical.png";
 import { Search, SideBar, BaseModal } from "../../components";
 const emptyTemplateForm = { name: "", category: "A fazer" };
 
 const TemplateTasks = () => {
-  const { templates } = useStore();
+  const { templates, addTask } = useStore();
   const [, params] = useRoute("/template/:index");
   const [template, setTemplate] = useState(null);
   const [taskForm, setTaskForm] = useState(emptyTemplateForm);
@@ -26,9 +25,10 @@ const TemplateTasks = () => {
       return;
     }
 
-    //add task no template
+    addTask(params.index, taskForm);
     setMdVisibility(false);
     setTaskForm(emptyTemplateForm);
+    console.log(templates);
   }
 
   useEffect(() => {
@@ -43,31 +43,54 @@ const TemplateTasks = () => {
       <div className="template-tasks-wrapper">
         <SideBar openModal={() => setMdVisibility(true)} />
         <Search />
-        <h1>Revisão</h1>
-        name: {template.name} <br />
-        description: {template.description} <br />
-        color: {template.color} <br />
-        <div>
-          <div id="wrapper">
-            <div id="left"> A fazer </div>
-            <div id="center">Em andamento</div>
-            <div id="right">Concluído</div>
-            <div id="left">
-              {" "}
-              <img
-                className="img-divider"
-                src={dividerCard}
-                alt="divider"
-              />{" "}
-            </div>
-            <div id="center">
-              <img className="img-divider" src={dividerCard} alt="divider" />
-            </div>
-            <div id="right">
-              <img className="img-divider" src={dividerCard} alt="divider" />
-            </div>
+
+        <section className="template-info">
+          <h1>{template.name}</h1>
+          <p>Descrição: {template.description}</p>
+        </section>
+
+        <section className="task-titles">
+          <span>A fazer</span>
+          <span>Em andamento</span>
+          <span>Concluído</span>
+        </section>
+
+        <section className="kanban-wrapper">
+          <div className="column to-do">
+            <ul className="list-tasks">
+              {template.tasks
+                .filter((task) => task.category === "A fazer")
+                .map((task, i) => (
+                  <li key={i + task.name + task.category} className="item">
+                    {task.name}
+                  </li>
+                ))}
+            </ul>
           </div>
-        </div>
+          <div className="column doing">
+            <ul className="list-tasks">
+              {template.tasks
+                .filter((task) => task.category === "Em andamento")
+                .map((task, i) => (
+                  <li key={i + task.name + task.category} className="item">
+                    {task.name}
+                  </li>
+                ))}
+            </ul>
+          </div>
+          <div className="column completed">
+            <ul className="list-tasks">
+              {template.tasks
+                .filter((task) => task.category === "Concluído")
+                .map((task, i) => (
+                  <li key={i + task.name + task.category} className="item">
+                    {task.name}
+                  </li>
+                ))}
+            </ul>
+          </div>
+        </section>
+
         <BaseModal
           title={"Adicionar Tarefa"}
           visibility={mdVisibility}

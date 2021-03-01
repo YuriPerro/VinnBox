@@ -4,20 +4,64 @@
   @include page-wrapper;
   padding-left: 130px;
   padding-right: 20px;
+  font-family: "Roboto", sans-serif;
+  background-color: #fff;
 
-  #left {
-    float: left;
-    width: 33%;
-    overflow: hidden;
+  .template-info {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2.5rem;
+    margin-top: 35px;
+    h1 {
+      font-size: 50px;
+    }
+    p {
+      font-weight: bold;
+      color: rgba(0, 0, 0, 0.5);
+    }
   }
 
-  #center {
-    float: left;
-    width: 33%;
-    overflow: hidden;
+  .task-titles {
+    display: flex;
+    width: 100%;
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+
+    span {
+      flex: 1;
+      &:not(:first-child) {
+        transform: translateX(-5%);
+      }
+    }
   }
 
-  #right {
+  .kanban-wrapper {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: calc(100% - 260px);
     overflow: hidden;
+    padding-left: 2rem;
+
+    .column {
+      flex: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 0 1rem;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        transform: translateX(-50%);
+        height: 100%;
+        border-left: 2px solid black;
+      }
+    }
   }
 }
