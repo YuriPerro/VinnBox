@@ -3,15 +3,6 @@ import { Types } from "mongoose";
 import { TemplateModel, TaskModel } from "../models";
 
 class TaskController {
-  static async getAll(req: Request, res: Response) {
-    try {
-      const task = await TaskModel.find().exec();
-      return res.status(200).json({ task: task, count: task.length });
-    } catch (error) {
-      return res.status(500).json({ message: error.message, error });
-    }
-  }
-
   static async create(req: Request, res: Response) {
     const { templateId } = req.params;
     const { name, description, category } = req.body;
