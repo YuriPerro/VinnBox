@@ -17,8 +17,8 @@
       font-size: 50px;
       width: max-content;
       display: flex;
+
       .btn-group {
-        // position: absolute;
         right: 0;
         top: 7px;
         display: flex;
@@ -131,6 +131,7 @@
         align-items: center;
         width: 100%;
         margin-bottom: 0.5rem;
+        padding: 0 0.5rem;
         transform: translateX(25px);
 
         button {
@@ -141,8 +142,17 @@
           letter-spacing: 2px;
           background-color: transparent;
           line-height: 15px;
+          transition: all ease 0.2s;
           &:focus {
             box-shadow: none;
+          }
+          &:hover {
+            border-radius: 25px;
+            filter: brightness(40%);
+            background-color: rgba(255, 255, 255, 0.226);
+          }
+          &:first-of-type {
+            padding-bottom: 5px;
           }
         }
       }
