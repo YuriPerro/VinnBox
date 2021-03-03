@@ -6,10 +6,15 @@ import { useStore } from "../../store";
 import { Search, SideBar, BaseModal } from "../../components";
 import taskIcon from "../../assets/icons/taskIcon.svg";
 import ContentModalTemplate from "./ContentModalTemplate";
-const emptyTemplateForm = { name: "", description: "", color: "#ff9c9c" };
+const emptyTemplateForm = {
+  name: "",
+  description: "",
+  color: "#ff9c9c",
+  tasks: [],
+};
 
 function Home() {
-  const { templates, setTemplates } = useStore();
+  const { templates, setTemplates, recentTasks } = useStore();
   const [, setLocation] = useLocation();
   const [templateForm, setTemplateForm] = useState(emptyTemplateForm);
   const [mdVisibility, setMdVisibility] = useState(false);
@@ -71,7 +76,11 @@ function Home() {
                     >
                       {template.name}
                     </span>
-                    <p className="description">{template.description}</p>
+                    <p className="description">
+                      {template.description
+                        ? template.description
+                        : "Sem descrição..."}
+                    </p>
                   </div>
                 ))}
               </ul>
@@ -81,6 +90,20 @@ function Home() {
 
         <div className="div-cards">
           <h2> Tarefas adicionados recentemente </h2>
+          <ul className="list-templates">
+            {recentTasks.map((task, index) => (
+              <div
+                key={task.name + index}
+                className="card-template"
+                style={{ cursor: "default" }}
+              >
+                <span className="name" style={{ background: "#fff" }}>
+                  {task.category} - {task.templateName}
+                </span>
+                <p className="description">• {task.name}</p>
+              </div>
+            ))}
+          </ul>
         </div>
       </section>
 

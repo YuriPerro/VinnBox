@@ -49,7 +49,7 @@ const ContentModalTemplate = (props) => {
       </main>
 
       <footer>
-        <BaseButton onClick={onSubmitForm}>Criar template</BaseButton>
+        <BaseButton onClick={onSubmitForm}>Confirmar</BaseButton>
       </footer>
     </>
   );

@@ -3,7 +3,13 @@ import React, { createContext, useState, useContext } from "react";
 const StoreContext = createContext();
 
 export default function StoreProvider({ children }) {
-  const [recentTasks, setRecentTasks] = useState([]);
+  const [recentTasks, setRecentTasks] = useState([
+    {
+      name: "1hr de exercícios",
+      category: "A fazer",
+      templateName: "Dia a dia",
+    },
+  ]);
   const [templates, setTemplates] = useState([
     {
       name: "Dia a dia",
@@ -11,7 +17,7 @@ export default function StoreProvider({ children }) {
       color: "#ff9c9c",
       tasks: [
         {
-          name: "Fazer 1hr de exercícios",
+          name: "1hr de exercícios",
           category: "A fazer",
         },
         {
@@ -47,7 +53,40 @@ export default function StoreProvider({ children }) {
       newState[templateIndex].tasks.push(newTask);
       return newState;
     });
-    setRecentTasks([...recentTasks, newTask]);
+    setRecentTasks([
+      ...recentTasks,
+      { ...newTask, templateName: templates[templateIndex].name },
+    ]);
+  }
+
+  function updateTask(templateIndex, taskToUpdate, newTask) {
+    if (!templates[templateIndex] && taskToUpdate) return;
+
+    setTemplates((prevState) => {
+      const taskIndex = prevState[templateIndex].tasks.findIndex(
+        (task) => task.name === taskToUpdate.name
+      );
+      const newState = [...prevState];
+      newState[templateIndex].tasks.splice(taskIndex, 1);
+      newState[templateIndex].tasks.push({ ...newTask });
+      return newState;
+    });
+  }
+
+  function deleteTask(templateIndex, taskToDelete) {
+    if (!templates[templateIndex]) return;
+
+    setTemplates((prevState) => {
+      const tasksFiltered = prevState[templateIndex].tasks.filter(
+        (task) => task.name !== taskToDelete.name
+      );
+      const newState = [...prevState];
+      newState[templateIndex].tasks = [...tasksFiltered];
+      return newState;
+    });
+    setRecentTasks((prevState) => {
+      return prevState.filter((task) => task.name !== taskToDelete.name);
+    });
   }
 
   return (
@@ -56,6 +95,9 @@ export default function StoreProvider({ children }) {
         templates,
         setTemplates,
         addTask,
+        updateTask,
+        deleteTask,
+        recentTasks,
       }}
     >
       {children}
