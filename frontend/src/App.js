@@ -5,8 +5,8 @@ import StoreProvider from "./store";
 
 function App() {
   return (
-    <StoreProvider>
-      <Router base={process.env.PUBLIC_URL}>
+    <Router base={process.env.PUBLIC_URL}>
+      <StoreProvider>
         <div className="app">
           <Switch>
             <Route path="/login" component={Login} />
@@ -17,8 +17,8 @@ function App() {
             <Redirect from="*" to="/login" />
           </Switch>
         </div>
-      </Router>
-    </StoreProvider>
+      </StoreProvider>
+    </Router>
   );
 }
 
