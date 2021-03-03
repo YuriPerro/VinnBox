@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
 import "./styles.scss";
 
-import { useRoute } from "wouter";
+import { useRoute, useLocation } from "wouter";
 import { useStore } from "../../store";
 import ContentModalTask from "./ContentModalTask";
 import { Search, SideBar, BaseModal } from "../../components";
 const emptyTemplateForm = { name: "", category: "A fazer" };
 
 const TemplateTasks = () => {
-  const { templates, addTask, deleteTask, updateTask } = useStore();
+  const {
+    templates,
+    setTemplates,
+    addTask,
+    deleteTask,
+    updateTask,
+  } = useStore();
   const [, params] = useRoute("/template/:index");
+  const [, setLocation] = useLocation();
   const [template, setTemplate] = useState(null);
   const [formType, setFormType] = useState("create");
   const [taskForm, setTaskForm] = useState(emptyTemplateForm);
@@ -60,6 +67,15 @@ const TemplateTasks = () => {
     setMdVisibility(true);
   }
 
+  function deleteTemplate() {
+    setLocation("/home");
+    setTemplates((prevState) => {
+      return prevState.filter(
+        (templatePrev) => templatePrev.name !== template.name
+      );
+    });
+  }
+
   useEffect(() => {
     if (params && templates[params.index]) {
       setTemplate({ ...templates[parseInt(params.index)] });
@@ -74,7 +90,13 @@ const TemplateTasks = () => {
         <Search />
 
         <section className="template-info">
-          <h1>{template.name}</h1>
+          <h1>
+            {template.name}{" "}
+            <div className="btn-group">
+              <button>...</button>
+              <button onClick={deleteTemplate}>&#x2715;</button>
+            </div>
+          </h1>
           <p>Descrição: {template.description}</p>
         </section>
 

@@ -8,12 +8,49 @@
   background-color: #fff;
 
   .template-info {
+    position: relative;
     display: flex;
     flex-direction: column;
     margin-bottom: 2.5rem;
     margin-top: 35px;
     h1 {
       font-size: 50px;
+      width: max-content;
+      display: flex;
+      .btn-group {
+        // position: absolute;
+        right: 0;
+        top: 7px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 0 1rem;
+
+        button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 40px;
+          height: 20px;
+          font-size: 20px;
+          font-weight: bold;
+          letter-spacing: 2px;
+          background-color: transparent;
+          line-height: 15px;
+          transition: all ease 0.2s;
+          &:hover {
+            border-radius: 25px;
+            background-color: #dddddd;
+            box-shadow: 0 0 0px 2px #dddddd;
+          }
+          &:focus {
+            box-shadow: none;
+          }
+          &:first-of-type {
+            padding-bottom: 5px;
+          }
+        }
+      }
     }
     p {
       font-weight: bold;
