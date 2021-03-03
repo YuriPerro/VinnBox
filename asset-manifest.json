@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/VinnBox/static/css/main.d4582659.chunk.css",
+    "main.css": "/VinnBox/static/css/main.a9719520.chunk.css",
     "main.js": "/VinnBox/static/js/main.222c0103.chunk.js",
     "main.js.map": "/VinnBox/static/js/main.222c0103.chunk.js.map",
     "runtime-main.js": "/VinnBox/static/js/runtime-main.fcb4c8ce.js",
@@ -8,7 +8,7 @@
     "static/js/2.41e762bd.chunk.js": "/VinnBox/static/js/2.41e762bd.chunk.js",
     "static/js/2.41e762bd.chunk.js.map": "/VinnBox/static/js/2.41e762bd.chunk.js.map",
     "index.html": "/VinnBox/index.html",
-    "static/css/main.d4582659.chunk.css.map": "/VinnBox/static/css/main.d4582659.chunk.css.map",
+    "static/css/main.a9719520.chunk.css.map": "/VinnBox/static/css/main.a9719520.chunk.css.map",
     "static/js/2.41e762bd.chunk.js.LICENSE.txt": "/VinnBox/static/js/2.41e762bd.chunk.js.LICENSE.txt",
     "static/media/VINNBOX-BRANCA.3dbed849.png": "/VinnBox/static/media/VINNBOX-BRANCA.3dbed849.png",
     "static/media/VINNBOX.b3ccc04a.png": "/VinnBox/static/media/VINNBOX.b3ccc04a.png",
@@ -24,7 +24,7 @@
   "entrypoints": [
     "static/js/runtime-main.fcb4c8ce.js",
     "static/js/2.41e762bd.chunk.js",
-    "static/css/main.d4582659.chunk.css",
+    "static/css/main.a9719520.chunk.css",
     "static/js/main.222c0103.chunk.js"
   ]
 }
