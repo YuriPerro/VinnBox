@@ -12,9 +12,11 @@ $secondary-clr: #fffbeb;
 
 @keyframes pageFadeIn {
   from {
-    transform: translateX(-10%);
+    transform: translateY(-10%);
+    height: 150vh;
   }
   to {
-    transform: translateX(0);
+    height: 100vh;
+    transform: translateY(0);
   }
 }
