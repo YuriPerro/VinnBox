@@ -16,12 +16,15 @@ const TemplateTasks = () => {
     updateTask,
   } = useStore();
   const [, params] = useRoute("/template/:index");
+
   const [, setLocation] = useLocation();
   const [template, setTemplate] = useState(null);
   const [formType, setFormType] = useState("create");
   const [taskForm, setTaskForm] = useState(emptyTemplateForm);
   const [taskToUpdate, setTaskToUpdate] = useState(null);
   const [mdVisibility, setMdVisibility] = useState(false);
+
+  const [deleteModalVisibility, setDeleteVisibility] = useState(false);
 
   function handleTemplateFormChange(event) {
     const { value, name } = event.target;
@@ -94,7 +97,7 @@ const TemplateTasks = () => {
             {template.name}{" "}
             <div className="btn-group">
               <button>...</button>
-              <button onClick={deleteTemplate}>&#x2715;</button>
+              <button onClick={() => setDeleteVisibility(true)}>&#x2715;</button>
             </div>
           </h1>
           <p>Descrição: {template.description}</p>
@@ -166,6 +169,33 @@ const TemplateTasks = () => {
             </ul>
           </div>
         </section>
+
+        <BaseModal
+          title={"Excluir"}
+          visibility={deleteModalVisibility}
+          setVisibility={setDeleteVisibility}
+        >
+          <form>
+            <body>
+              <p className="title-modal-delete">
+                Tem certeza que deseja Excluir o template {template.name}?
+              </p>
+              <br/>
+              <p className="body-modal-delete">
+                • Você possui {template.tasks.length == 1 ? template.tasks.length + ' card adicionado' : template.tasks.length + ' cards adicionados'} a esse template
+                </p>
+            </body>
+            <footer>
+              <button className="btn-left" onClick={() => setDeleteVisibility(false)}>
+                Voltar
+              </button>
+
+              <button className="btn-right" onClick={() => deleteTemplate()}>
+                Confirmar
+              </button>
+            </footer>
+          </form>
+        </BaseModal>
 
         <BaseModal
           title={formType === "create" ? "Adicionar Tarefa" : "Editar Tarefa"}

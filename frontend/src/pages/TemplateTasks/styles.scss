@@ -148,4 +148,50 @@
       }
     }
   }
+
+  form {
+    body  {
+      .title-modal-delete{
+        text-align: center;
+        font-size: 19px;
+      }
+    }
+
+    footer {
+      display: grid;
+      grid-template-columns: 1rem 1rem;
+
+      .btn-left{
+        height: 50px;
+        width: 100%;
+        background-color: lightblue;
+        margin-right: 1rem;
+        color: white;
+        font-weight: 600;
+        font-size: 17px;
+        border: none;
+
+        transition:  background 0.2s;
+      }
+
+      .btn-left:hover{
+        background: rgb(125, 192, 214);
+      }
+
+      .btn-right {
+        height: 50px;
+        width: 100%;
+        background-color: rgb(241, 141, 141);
+        color: white;
+        font-weight: 600;
+        font-size: 16px;
+
+        transition:  background 0.2s;
+      }
+
+      .btn-right:hover{
+        background: rgb(230, 110, 110);
+      }
+    }
+  }
 }
