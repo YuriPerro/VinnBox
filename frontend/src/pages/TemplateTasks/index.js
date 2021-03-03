@@ -178,18 +178,17 @@ const TemplateTasks = () => {
           <form>
             <body>
               <p className="title-modal-delete">
-                Tem certeza que deseja Excluir o template {template.name}?
+                Tem certeza que deseja excluir o template {template.name}?
               </p>
               <br/>
               <p className="body-modal-delete">
-                • Você possui {template.tasks.length == 1 ? template.tasks.length + ' card adicionado' : template.tasks.length + ' cards adicionados'} a esse template
-                </p>
+                • Você possui {template.tasks.length == 1 ? template.tasks.length + ' card adicionado' : template.tasks.length + ' cards adicionados'} a esse template.
+              </p>
             </body>
             <footer>
               <button className="btn-left" onClick={() => setDeleteVisibility(false)}>
                 Voltar
               </button>
-
               <button className="btn-right" onClick={() => deleteTemplate()}>
                 Confirmar
               </button>
