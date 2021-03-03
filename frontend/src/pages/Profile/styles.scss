@@ -102,10 +102,6 @@
       border-radius: 5px;
       background-color: #ffdddd;
       box-shadow: 0 0 2px rgb(87, 87, 87);
-      &:hover {
-        transition: border-color ease 200ms;
-        border-color: #9c9c9c;
-      }
       &::placeholder {
         color: rgba(0, 0, 0, 0.3);
       }

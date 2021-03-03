@@ -4,7 +4,7 @@ import "./styles.scss";
 import { useLocation } from "wouter";
 import { useStore } from "../../store";
 import { Search, SideBar, BaseModal } from "../../components";
-import taskIcon from "../../assets/icons/taskIcon.svg";
+import { ReactComponent as TaskIcon } from "../../assets/icons/taskIcon.svg";
 import ContentModalTemplate from "./ContentModalTemplate";
 const emptyTemplateForm = {
   name: "",
@@ -27,6 +27,17 @@ function Home() {
   function handleSubmitTemplateForm() {
     if (!templateForm.name || !templateForm.color) {
       alert("Campo nome é obrigatório!");
+      return;
+    }
+
+    if (
+      templates.find(
+        (template) =>
+          template.name.trim().toUpperCase() ===
+          templateForm.name.trim().toUpperCase()
+      )
+    ) {
+      alert("Campo nome deve ser único!");
       return;
     }
 
@@ -88,7 +99,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="div-cards">
+        <div className="recent-tasks-container">
           <h2> Tarefas adicionados recentemente </h2>
           <ul className="list-templates">
             {recentTasks.map((task, index) => (
@@ -107,7 +118,7 @@ function Home() {
         </div>
       </section>
 
-      <img src={taskIcon} alt="task icon" />
+      <TaskIcon />
     </div>
   );
 }

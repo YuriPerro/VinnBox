@@ -5,74 +5,94 @@
   padding-left: 150px;
   padding-right: 20px;
 
-  > img {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin-bottom: 30px;
-    margin-right: 30px;
-
-    max-width: 200px;
-    max-height: 200px;
-  }
-
   > section {
+    position: relative;
     flex: 1;
     display: grid;
     grid-template-rows: 1fr 1fr;
     gap: 1.75rem;
     align-content: center;
-  }
-}
-
-.div-templates-container {
-  margin-top: 35px;
-}
-
-.list-templates {
-  display: flex;
-  display: grid;
-  grid-gap: 2rem;
-  grid-template-columns: repeat(auto-fill, 350px);
-  width: 100%;
-  padding: 1rem 0;
-
-  > p {
-    margin-top: 10px;
-  }
-}
-
-.card-template {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-
-  min-height: 80px;
-  overflow: hidden;
-  background-color: #ffffff;
-  box-shadow: 2px 5px 5px 0px rgba(87, 87, 87, 0.3);
-
-  .name {
     width: 100%;
-    font-size: 20px;
-    padding: 0.5rem 0.5rem;
-    text-align: center;
-    color: gray;
-    font-weight: 600;
+    height: calc(100% - 60px);
+    z-index: 5;
   }
 
-  > .description {
-    padding: 0.5rem 2rem;
-    color: dimgrey;
+  .div-templates-container {
+    margin-top: 35px;
+    min-height: 300px;
   }
-}
 
-.div-cards {
-  margin-top: 20px;
-  overflow: none;
+  .list-templates {
+    display: flex;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fill, 350px);
+    width: 100%;
+    padding: 1rem 0;
 
-  > h2 {
-    font-weight: 200;
+    > p {
+      margin-top: 10px;
+    }
+  }
+
+  .card-template {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    min-height: 80px;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 2px 5px 5px 0px rgba(87, 87, 87, 0.3);
+    transition: all ease 0.2s;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 5px 8px 5px 0px rgba(87, 87, 87, 0.3);
+    }
+
+    .name {
+      width: 100%;
+      font-size: 20px;
+      padding: 0.5rem 1rem;
+      overflow: hidden;
+      word-wrap: break-word;
+      text-align: center;
+      color: gray;
+      font-weight: 600;
+    }
+
+    > .description {
+      padding: 0.5rem 2rem;
+      color: dimgrey;
+    }
+  }
+
+  .recent-tasks-container {
+    margin-top: 20px;
+    overflow: none;
+
+    > h2 {
+      font-weight: 200;
+    }
+
+    .card-template {
+      box-shadow: 0 0px 5px 2px rgba(87, 87, 87, 0.3);
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+
+  > svg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 30px;
+    margin-right: 20px;
+    z-index: 1;
+
+    max-width: 250px;
+    max-height: 250px;
   }
 }

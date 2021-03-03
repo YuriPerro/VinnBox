@@ -1,9 +1,8 @@
 import React from "react";
 import "./styles.scss";
 
-import { Link, useLocation } from "wouter";
+import { useLocation } from "wouter";
 
-import { Search, SideBar, BaseModal } from "../../components";
 import { BaseButton } from "../../components";
 import footerImgLogin from "../../assets/images/login-footer-img.png";
 
@@ -16,10 +15,7 @@ function Profile() {
   }
 
   return (
-
-    
     <div className="profile">
-      
       <img
         draggable="false"
         className="footer-img"
@@ -27,44 +23,21 @@ function Profile() {
         alt="background draw"
       />
 
-      <h3> 
-      </h3>
-
       <h7>Usuário desde: 2020</h7>
 
       <div className="card">
         <div className="body">
           <form onSubmit={submitForm} className="form-group">
             <label htmlFor="email">Nome</label>
-            <input
-              type="text"
-              name="nome"
-              id="nome"
-              placeholder=""
-            />
+            <input type="text" name="nome" id="nome" placeholder="" />
             <label htmlFor="email">E-mail</label>
-            <input
-              type="text"
-              name="email"
-              id="email"
-              placeholder=""
-            />
+            <input type="text" name="email" id="email" placeholder="" />
 
             <label htmlFor="pass">Login</label>
-            <input
-              type="text"
-              name="email"
-              id="email"
-              placeholder=""
-            />
+            <input type="text" name="email" id="email" placeholder="" />
 
             <label htmlFor="pass">Senha</label>
-            <input
-              type="password"
-              name="password"
-              id="pass"
-              placeholder=""
-            />
+            <input type="password" name="password" id="pass" placeholder="" />
 
             <label htmlFor="conf">Nova Senha</label>
             <input
@@ -76,15 +49,12 @@ function Profile() {
 
             <BaseButton type={"submit"}>Salvar Alterações</BaseButton>
           </form>
-
         </div>
         <div draggable="false" className="aside-bg-img right" />
         <div draggable="false" className="aside-bg-img left" />
       </div>
-
-
     </div>
-  )
+  );
 }
 
 export default Profile;

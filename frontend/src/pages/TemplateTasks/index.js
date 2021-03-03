@@ -28,7 +28,13 @@ const TemplateTasks = () => {
     }
 
     if (formType === "create") {
-      if (template.tasks.find((task) => task.name === taskForm.name)) {
+      if (
+        template.tasks.find(
+          (task) =>
+            task.name.trim().toUpperCase() ===
+            taskForm.name.trim().toUpperCase()
+        )
+      ) {
         alert("Campo nome deve ser único!");
         return;
       }
