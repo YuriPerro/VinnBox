@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9dbc520b.chunk.css",
+    "main.js": "/static/js/main.090559ef.chunk.js",
+    "main.js.map": "/static/js/main.090559ef.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.1c7c8882.js",
+    "runtime-main.js.map": "/static/js/runtime-main.1c7c8882.js.map",
+    "static/js/2.41e762bd.chunk.js": "/static/js/2.41e762bd.chunk.js",
+    "static/js/2.41e762bd.chunk.js.map": "/static/js/2.41e762bd.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.9dbc520b.chunk.css.map": "/static/css/main.9dbc520b.chunk.css.map",
+    "static/js/2.41e762bd.chunk.js.LICENSE.txt": "/static/js/2.41e762bd.chunk.js.LICENSE.txt",
+    "static/media/VINNBOX-BRANCA.3dbed849.png": "/static/media/VINNBOX-BRANCA.3dbed849.png",
+    "static/media/VINNBOX.b3ccc04a.png": "/static/media/VINNBOX.b3ccc04a.png",
+    "static/media/styles.scss": "/static/media/card-bg.9674e3ee.png",
+    "static/media/homeIcon.4faf1699.svg": "/static/media/homeIcon.4faf1699.svg",
+    "static/media/login-footer-img.d1015408.png": "/static/media/login-footer-img.d1015408.png",
+    "static/media/logoutIcon.49add009.svg": "/static/media/logoutIcon.49add009.svg",
+    "static/media/plusIcon.bffdf87a.svg": "/static/media/plusIcon.bffdf87a.svg",
+    "static/media/searchIcon.42d5fc60.svg": "/static/media/searchIcon.42d5fc60.svg",
+    "static/media/sideBarIcon.a1a276e7.svg": "/static/media/sideBarIcon.a1a276e7.svg",
+    "static/media/task.b993bf80.png": "/static/media/task.b993bf80.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1c7c8882.js",
+    "static/js/2.41e762bd.chunk.js",
+    "static/css/main.9dbc520b.chunk.css",
+    "static/js/main.090559ef.chunk.js"
+  ]
+}
