@@ -7,8 +7,7 @@ import dividerCard from "../../assets/images/card-divider.png";
 import footerImgLogin from "../../assets/images/login-footer-img.png";
 
 const Cadastro = () => {
-
-  const [form, setForm] = useState({
+  const [form] = useState({
     nome: "",
     email: "",
     password: "",
@@ -86,7 +85,6 @@ const Cadastro = () => {
         src={footerImgLogin}
         alt="background draw"
       />
-      
     </div>
   );
 };

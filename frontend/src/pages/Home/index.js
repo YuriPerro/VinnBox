@@ -4,7 +4,7 @@ import "./styles.scss";
 import { useLocation } from "wouter";
 import { useStore } from "../../store";
 import { Search, SideBar, BaseModal } from "../../components";
-import { ReactComponent as TaskIcon } from "../../assets/icons/taskIcon.svg";
+import taskImg from "../../assets/images/task.png";
 import ContentModalTemplate from "./ContentModalTemplate";
 const emptyTemplateForm = {
   name: "",
@@ -118,7 +118,7 @@ function Home() {
         </div>
       </section>
 
-      <TaskIcon />
+      <img src={taskImg} alt="task" />
     </div>
   );
 }
