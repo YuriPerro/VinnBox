@@ -159,19 +159,19 @@
     }
   }
 
-  form {
-    body  {
-      .title-modal-delete{
+  section {
+    > .body {
+      .title-modal-delete {
         text-align: center;
         font-size: 19px;
       }
     }
-    
+
     footer {
       display: grid;
       grid-template-columns: 1rem 1rem;
 
-      .btn-left{
+      .btn-left {
         height: 50px;
         width: 100%;
         background-color: lightblue;
@@ -181,10 +181,10 @@
         font-size: 17px;
         border: none;
 
-        transition:  background 0.2s;
+        transition: background 0.2s;
       }
 
-      .btn-left:hover{
+      .btn-left:hover {
         background: rgb(125, 192, 214);
       }
 
@@ -196,10 +196,10 @@
         font-weight: 600;
         font-size: 16px;
 
-        transition:  background 0.2s;
+        transition: background 0.2s;
       }
 
-      .btn-right:hover{
+      .btn-right:hover {
         background: rgb(230, 110, 110);
       }
     }

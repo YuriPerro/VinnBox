@@ -14,6 +14,7 @@ const TemplateTasks = () => {
     addTask,
     deleteTask,
     updateTask,
+    setRecentTasks,
   } = useStore();
   const [, params] = useRoute("/template/:index");
 
@@ -72,6 +73,11 @@ const TemplateTasks = () => {
 
   function deleteTemplate() {
     setLocation("/home");
+    setRecentTasks((prevState) => {
+      return prevState.filter((taskRecent) => {
+        return !template.tasks.some((task) => task.name === taskRecent.name);
+      });
+    });
     setTemplates((prevState) => {
       return prevState.filter(
         (templatePrev) => templatePrev.name !== template.name
@@ -82,6 +88,8 @@ const TemplateTasks = () => {
   useEffect(() => {
     if (params && templates[params.index]) {
       setTemplate({ ...templates[parseInt(params.index)] });
+    } else {
+      setLocation("/home");
     }
     // eslint-disable-next-line
   }, [templates]);
@@ -97,7 +105,9 @@ const TemplateTasks = () => {
             {template.name}{" "}
             <div className="btn-group">
               <button>...</button>
-              <button onClick={() => setDeleteVisibility(true)}>&#x2715;</button>
+              <button onClick={() => setDeleteVisibility(true)}>
+                &#x2715;
+              </button>
             </div>
           </h1>
           <p>Descrição: {template.description}</p>
@@ -175,25 +185,32 @@ const TemplateTasks = () => {
           visibility={deleteModalVisibility}
           setVisibility={setDeleteVisibility}
         >
-          <form>
-            <body>
+          <section>
+            <div className="body">
               <p className="title-modal-delete">
                 Tem certeza que deseja excluir o template {template.name}?
               </p>
-              <br/>
+              <br />
               <p className="body-modal-delete">
-                • Você possui {template.tasks.length == 1 ? template.tasks.length + ' card adicionado' : template.tasks.length + ' cards adicionados'} a esse template.
+                • Você possui{" "}
+                {template.tasks.length === 1
+                  ? template.tasks.length + " card adicionado"
+                  : template.tasks.length + " cards adicionados"}{" "}
+                a esse template.
               </p>
-            </body>
+            </div>
             <footer>
-              <button className="btn-left" onClick={() => setDeleteVisibility(false)}>
+              <button
+                className="btn-left"
+                onClick={() => setDeleteVisibility(false)}
+              >
                 Voltar
               </button>
               <button className="btn-right" onClick={() => deleteTemplate()}>
                 Confirmar
               </button>
             </footer>
-          </form>
+          </section>
         </BaseModal>
 
         <BaseModal

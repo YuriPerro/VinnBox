@@ -98,6 +98,7 @@ export default function StoreProvider({ children }) {
         updateTask,
         deleteTask,
         recentTasks,
+        setRecentTasks,
       }}
     >
       {children}
