@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/VinnBox/static/css/main.d7d9d63a.chunk.css",
-    "main.js": "/VinnBox/static/js/main.ee0a3cb2.chunk.js",
-    "main.js.map": "/VinnBox/static/js/main.ee0a3cb2.chunk.js.map",
+    "main.css": "/VinnBox/static/css/main.b7c24d90.chunk.css",
+    "main.js": "/VinnBox/static/js/main.deeec598.chunk.js",
+    "main.js.map": "/VinnBox/static/js/main.deeec598.chunk.js.map",
     "runtime-main.js": "/VinnBox/static/js/runtime-main.fcb4c8ce.js",
     "runtime-main.js.map": "/VinnBox/static/js/runtime-main.fcb4c8ce.js.map",
     "static/js/2.41e762bd.chunk.js": "/VinnBox/static/js/2.41e762bd.chunk.js",
     "static/js/2.41e762bd.chunk.js.map": "/VinnBox/static/js/2.41e762bd.chunk.js.map",
     "index.html": "/VinnBox/index.html",
-    "static/css/main.d7d9d63a.chunk.css.map": "/VinnBox/static/css/main.d7d9d63a.chunk.css.map",
+    "static/css/main.b7c24d90.chunk.css.map": "/VinnBox/static/css/main.b7c24d90.chunk.css.map",
     "static/js/2.41e762bd.chunk.js.LICENSE.txt": "/VinnBox/static/js/2.41e762bd.chunk.js.LICENSE.txt",
     "static/media/VINNBOX-BRANCA.3dbed849.png": "/VinnBox/static/media/VINNBOX-BRANCA.3dbed849.png",
     "static/media/VINNBOX.b3ccc04a.png": "/VinnBox/static/media/VINNBOX.b3ccc04a.png",
@@ -24,7 +24,7 @@
   "entrypoints": [
     "static/js/runtime-main.fcb4c8ce.js",
     "static/js/2.41e762bd.chunk.js",
-    "static/css/main.d7d9d63a.chunk.css",
-    "static/js/main.ee0a3cb2.chunk.js"
+    "static/css/main.b7c24d90.chunk.css",
+    "static/js/main.deeec598.chunk.js"
   ]
 }
