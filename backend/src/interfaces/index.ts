@@ -8,7 +8,6 @@ export interface ITemplate extends Document {
 
 export interface ITask extends Document {
   name: string;
-  description: string;
   category: "A fazer" | "Em andamento" | "Concluído";
 }
 

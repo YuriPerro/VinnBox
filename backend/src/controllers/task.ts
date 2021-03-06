@@ -5,14 +5,10 @@ import { TemplateModel, TaskModel } from "../models";
 class TaskController {
   static async create(req: Request, res: Response) {
     const { templateId } = req.params;
-    const { name, description, category } = req.body;
+    const { name, category } = req.body;
 
     if (!Types.ObjectId.isValid(templateId)) {
       return res.status(400).send("Invalid template id received");
-    }
-    const validStatus = ["to do", "doing", "done"];
-    if (!validStatus.includes(status)) {
-      return res.status(400).json({ message: "Invalid status field" });
     }
 
     try {
@@ -22,7 +18,6 @@ class TaskController {
       const taskCreated = await TaskModel.create({
         _id: new Types.ObjectId(),
         name,
-        description,
         category,
       });
       templateFound.tasks.push(taskCreated._id);
@@ -35,7 +30,7 @@ class TaskController {
 
   static async update(req: Request, res: Response) {
     const { taskId } = req.params;
-    const { name, description, category } = req.body;
+    const { name, category } = req.body;
 
     if (!Types.ObjectId.isValid(taskId)) {
       return res.status(400).send("Invalid task id received");
@@ -44,7 +39,7 @@ class TaskController {
     try {
       const taskUpdated = await TaskModel.findByIdAndUpdate(
         taskId,
-        { name, description, category },
+        { name, category },
         { new: true },
       ).exec();
       return res.status(200).json({ task: taskUpdated });
