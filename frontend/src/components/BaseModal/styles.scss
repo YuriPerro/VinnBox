@@ -1,15 +1,17 @@
-.modal-overlay {
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  top: 0;
-  left: 0;
-  z-index: 50;
-  background-color: rgba(0, 0, 0, 0.335);
-  transform: all 500ms ease;
-  animation: fadeIn 0.2s ease;
+.modal-container {
+  .modal-overlay {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.335);
+    transform: all 500ms ease;
+    animation: fadeIn 0.2s ease;
+  }
 
-  > .modal {
+  .modal {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -70,13 +72,13 @@
     }
   }
 
-  > .modal label {
+  .modal label {
     font-weight: bold;
     padding-left: 1.5rem;
     margin-bottom: 0.5rem;
   }
 
-  > .modal input,
+  .modal input,
   textarea {
     font-size: 20px;
     background-color: #f3f3f3;
@@ -85,7 +87,7 @@
     margin-bottom: 1.5rem;
   }
 
-  > .modal input {
+  .modal input {
     height: 55px;
     border-radius: 9999px;
   }

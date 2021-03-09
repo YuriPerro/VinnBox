@@ -4,35 +4,31 @@ import "./styles.scss";
 import { useRoute, useLocation } from "wouter";
 import { useStore } from "../../store";
 import ContentModalTask from "./ContentModalTask";
-import { Search, SideBar, BaseModal } from "../../components";
-const emptyTemplateForm = { name: "", category: "A fazer" };
+import { Search, SideBar, BaseModal, ContentModalTemplate } from "../../components";
+const emptyTaskForm = { name: "", category: "A fazer" };
+const emptyTemplateForm = { name: "", description: "", color: "#ff9c9c", tasks: [] };
 
 const TemplateTasks = () => {
-  const {
-    templates,
-    setTemplates,
-    addTask,
-    deleteTask,
-    updateTask,
-    setRecentTasks,
-  } = useStore();
+  const { templates, setTemplates, addTask, deleteTask, updateTask, setRecentTasks } = useStore();
   const [, params] = useRoute("/template/:index");
 
   const [, setLocation] = useLocation();
   const [template, setTemplate] = useState(null);
   const [formType, setFormType] = useState("create");
-  const [taskForm, setTaskForm] = useState(emptyTemplateForm);
+  const [taskForm, setTaskForm] = useState(emptyTaskForm);
   const [taskToUpdate, setTaskToUpdate] = useState(null);
-  const [mdVisibility, setMdVisibility] = useState(false);
-
+  const [mdTaskVisibility, setMdTaskVisibility] = useState(false);
   const [deleteModalVisibility, setDeleteVisibility] = useState(false);
+  //modal template
+  const [templateForm, setTemplateForm] = useState(emptyTemplateForm);
+  const [mdTemplateVisibility, setMdTemplateVisibility] = useState(false);
 
-  function handleTemplateFormChange(event) {
+  function handleTaskFormChange(event) {
     const { value, name } = event.target;
     setTaskForm((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handleSubmitTemplateForm() {
+  function handleSubmitTaskForm() {
     if (!taskForm.name || !taskForm.category) {
       alert("Campo nome é obrigatório!");
       return;
@@ -41,9 +37,7 @@ const TemplateTasks = () => {
     if (formType === "create") {
       if (
         template.tasks.find(
-          (task) =>
-            task.name.trim().toUpperCase() ===
-            taskForm.name.trim().toUpperCase()
+          (task) => task.name.trim().toUpperCase() === taskForm.name.trim().toUpperCase()
         )
       ) {
         alert("Campo nome deve ser único!");
@@ -51,26 +45,27 @@ const TemplateTasks = () => {
       }
       taskForm.index = template.tasks.length;
       addTask(params.index, taskForm);
-      setTaskForm(emptyTemplateForm);
+      setTaskForm(emptyTaskForm);
     } else {
       updateTask(params.index, taskToUpdate, taskForm);
     }
-    setMdVisibility(false);
+    setMdTaskVisibility(false);
   }
 
   function openModalCreateTask() {
     setFormType("create");
-    setTaskForm(emptyTemplateForm);
-    setMdVisibility(true);
+    setTaskForm(emptyTaskForm);
+    setMdTaskVisibility(true);
   }
 
   function openModalEditTask(task) {
     setFormType("edit");
     setTaskToUpdate({ ...task });
     setTaskForm({ ...task });
-    setMdVisibility(true);
+    setMdTaskVisibility(true);
   }
 
+  // modal template
   function deleteTemplate() {
     setLocation("/home");
     setRecentTasks((prevState) => {
@@ -79,10 +74,48 @@ const TemplateTasks = () => {
       });
     });
     setTemplates((prevState) => {
-      return prevState.filter(
-        (templatePrev) => templatePrev.name !== template.name
-      );
+      return prevState.filter((templatePrev) => templatePrev.name !== template.name);
     });
+  }
+
+  function openModalEditTemplate() {
+    setTemplateForm({ ...template });
+    setMdTemplateVisibility(true);
+  }
+
+  function handleTemplateFormChange(event) {
+    const { value, name } = event.target;
+    setTemplateForm((prev) => ({ ...prev, [name]: value }));
+  }
+
+  function handleSubmitTemplateForm() {
+    if (!templateForm.name || !templateForm.color) {
+      alert("Campo nome é obrigatório!");
+      return;
+    }
+    const templatesSemOAtual = templates.filter(
+      (templatePrev) =>
+        templatePrev.name.trim().toUpperCase() !== template.name.trim().toUpperCase()
+    );
+    if (
+      templatesSemOAtual.find(
+        (templatePrev) =>
+          templatePrev.name.trim().toUpperCase() === templateForm.name.trim().toUpperCase()
+      )
+    ) {
+      alert("Campo nome deve ser único!");
+      return;
+    }
+
+    const index = templates.findIndex(
+      (templatePrev) =>
+        templatePrev.name.trim().toUpperCase() === template.name.trim().toUpperCase()
+    );
+    const newState = [...templates];
+    newState[index] = { ...templateForm };
+    setTemplates(newState);
+    setMdTemplateVisibility(false);
+    setTemplateForm(emptyTemplateForm);
   }
 
   useEffect(() => {
@@ -102,12 +135,10 @@ const TemplateTasks = () => {
 
         <section className="template-info">
           <h1>
-            {template.name}{" "}
+            {template.name}
             <div className="btn-group">
-              <button>...</button>
-              <button onClick={() => setDeleteVisibility(true)}>
-                &#x2715;
-              </button>
+              <button onClick={openModalEditTemplate}>...</button>
+              <button onClick={() => setDeleteVisibility(true)}>&#x2715;</button>
             </div>
           </h1>
           <p>Descrição: {template.description}</p>
@@ -125,12 +156,8 @@ const TemplateTasks = () => {
                 .map((task, i) => (
                   <li key={i + task.name + task.category} className="item">
                     <div className="btn-group">
-                      <button onClick={() => openModalEditTask(task)}>
-                        ...
-                      </button>
-                      <button onClick={() => deleteTask(params.index, task)}>
-                        &#x2715;
-                      </button>
+                      <button onClick={() => openModalEditTask(task)}>...</button>
+                      <button onClick={() => deleteTask(params.index, task)}>&#x2715;</button>
                     </div>
                     • {task.name}
                   </li>
@@ -146,12 +173,8 @@ const TemplateTasks = () => {
                 .map((task, i) => (
                   <li key={i + task.name + task.category} className="item">
                     <div className="btn-group">
-                      <button onClick={() => openModalEditTask(task)}>
-                        ...
-                      </button>
-                      <button onClick={() => deleteTask(params.index, task)}>
-                        &#x2715;
-                      </button>
+                      <button onClick={() => openModalEditTask(task)}>...</button>
+                      <button onClick={() => deleteTask(params.index, task)}>&#x2715;</button>
                     </div>
                     • {task.name}
                   </li>
@@ -166,12 +189,8 @@ const TemplateTasks = () => {
                 .map((task, i) => (
                   <li key={i + task.name + task.category} className="item">
                     <div className="btn-group">
-                      <button onClick={() => openModalEditTask(task)}>
-                        ...
-                      </button>
-                      <button onClick={() => deleteTask(params.index, task)}>
-                        &#x2715;
-                      </button>
+                      <button onClick={() => openModalEditTask(task)}>...</button>
+                      <button onClick={() => deleteTask(params.index, task)}>&#x2715;</button>
                     </div>
                     • {task.name}
                   </li>
@@ -200,10 +219,7 @@ const TemplateTasks = () => {
               </p>
             </div>
             <footer>
-              <button
-                className="btn-left"
-                onClick={() => setDeleteVisibility(false)}
-              >
+              <button className="btn-left" onClick={() => setDeleteVisibility(false)}>
                 Voltar
               </button>
               <button className="btn-right" onClick={() => deleteTemplate()}>
@@ -215,11 +231,23 @@ const TemplateTasks = () => {
 
         <BaseModal
           title={formType === "create" ? "Adicionar Tarefa" : "Editar Tarefa"}
-          visibility={mdVisibility}
-          setVisibility={setMdVisibility}
+          visibility={mdTaskVisibility}
+          setVisibility={setMdTaskVisibility}
         >
           <ContentModalTask
             form={taskForm}
+            onChangeForm={handleTaskFormChange}
+            onSubmitForm={handleSubmitTaskForm}
+          />
+        </BaseModal>
+
+        <BaseModal
+          title={"Editar Template"}
+          visibility={mdTemplateVisibility}
+          setVisibility={setMdTemplateVisibility}
+        >
+          <ContentModalTemplate
+            form={templateForm}
             onChangeForm={handleTemplateFormChange}
             onSubmitForm={handleSubmitTemplateForm}
           />

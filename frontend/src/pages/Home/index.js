@@ -3,15 +3,9 @@ import "./styles.scss";
 
 import { useLocation } from "wouter";
 import { useStore } from "../../store";
-import { Search, SideBar, BaseModal } from "../../components";
+import { Search, SideBar, BaseModal, ContentModalTemplate } from "../../components";
 import taskImg from "../../assets/images/task.png";
-import ContentModalTemplate from "./ContentModalTemplate";
-const emptyTemplateForm = {
-  name: "",
-  description: "",
-  color: "#ff9c9c",
-  tasks: [],
-};
+const emptyTemplateForm = { name: "", description: "", color: "#ff9c9c", tasks: [] };
 
 function Home() {
   const { templates, setTemplates, recentTasks } = useStore();
@@ -32,9 +26,7 @@ function Home() {
 
     if (
       templates.find(
-        (template) =>
-          template.name.trim().toUpperCase() ===
-          templateForm.name.trim().toUpperCase()
+        (template) => template.name.trim().toUpperCase() === templateForm.name.trim().toUpperCase()
       )
     ) {
       alert("Campo nome deve ser único!");
@@ -81,16 +73,11 @@ function Home() {
                     onClick={() => redirectToTemplate(index)}
                     className="card-template"
                   >
-                    <span
-                      className="name"
-                      style={{ background: template.color }}
-                    >
+                    <span className="name" style={{ background: template.color }}>
                       {template.name}
                     </span>
                     <p className="description">
-                      {template.description
-                        ? template.description
-                        : "Sem descrição..."}
+                      {template.description ? template.description : "Sem descrição..."}
                     </p>
                   </div>
                 ))}
@@ -103,12 +90,11 @@ function Home() {
           <h2> Tarefas adicionados recentemente </h2>
           <ul className="list-templates">
             {recentTasks.map((task, index) => (
-              <div
-                key={task.name + index}
-                className="card-template"
-                style={{ cursor: "default" }}
-              >
-                <span className="name" style={{ background: "#fff" }}>
+              <div key={task.name + index} className="card-template" style={{ cursor: "default" }}>
+                <span
+                  className="name"
+                  style={{ background: "#fff", textAlign: "start", padding: "0.5rem 2rem" }}
+                >
                   {task.category} - {task.templateName}
                 </span>
                 <p className="description">• {task.name}</p>

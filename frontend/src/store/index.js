@@ -21,12 +21,12 @@ export default function StoreProvider({ children }) {
           category: "A fazer",
         },
         {
-          name: "Continuar o fluxo de trabalho",
+          name: "Continuar o fluxo de trabalho de DCC070",
           category: "Em andamento",
         },
         {
           name:
-            "Ler artigos científicos sobre o tema, fazer resumos e entregar a diretoria para aprovação",
+            "Ler artigos científicos sobre MIPS, fazer resumos e entregar a diretoria para aprovação",
           category: "Concluído",
         },
       ],
@@ -53,10 +53,7 @@ export default function StoreProvider({ children }) {
       newState[templateIndex].tasks.push(newTask);
       return newState;
     });
-    setRecentTasks([
-      ...recentTasks,
-      { ...newTask, templateName: templates[templateIndex].name },
-    ]);
+    setRecentTasks([...recentTasks, { ...newTask, templateName: templates[templateIndex].name }]);
   }
 
   function updateTask(templateIndex, taskToUpdate, newTask) {
