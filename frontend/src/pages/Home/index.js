@@ -3,15 +3,9 @@ import "./styles.scss";
 
 import { useLocation } from "wouter";
 import { useStore } from "../../store";
-import { Search, SideBar, BaseModal } from "../../components";
+import { Search, SideBar, BaseModal, ContentModalTemplate } from "../../components";
 import taskImg from "../../assets/images/task.png";
-import ContentModalTemplate from "./ContentModalTemplate";
-const emptyTemplateForm = {
-  name: "",
-  description: "",
-  color: "#ff9c9c",
-  tasks: [],
-};
+const emptyTemplateForm = { name: "", description: "", color: "#ff9c9c", tasks: [] };
 
 function Home() {
   const { templates, setTemplates, recentTasks } = useStore();
