@@ -12,6 +12,7 @@
   background-color: $primary-clr;
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.4);
   transition: all 0.2s ease;
+  align-self: center;
   &:hover {
     background-color: #ff9393;
     transform: scale(1.03);
