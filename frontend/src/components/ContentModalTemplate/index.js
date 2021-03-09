@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.scss";
 
-import { BaseButton } from "../../../components";
+import { BaseButton } from "../index";
 
 const ContentModalTemplate = (props) => {
   const { form, onChangeForm, onSubmitForm } = props;
@@ -47,7 +47,7 @@ const ContentModalTemplate = (props) => {
       </main>
 
       <footer>
-        <BaseButton onClick={onSubmitForm}>Criar template</BaseButton>
+        <BaseButton onClick={onSubmitForm}>Confirmar</BaseButton>
       </footer>
     </>
   );
