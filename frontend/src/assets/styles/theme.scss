@@ -14,8 +14,10 @@ $secondary-clr: #fffbeb;
   from {
     transform: translateY(-10%);
     height: 150vh;
+    opacity: 0;
   }
   to {
+    opacity: 1;
     height: 100vh;
     transform: translateY(0);
   }

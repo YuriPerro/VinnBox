@@ -59,6 +59,12 @@ button {
   }
 }
 
+.link-effect {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
