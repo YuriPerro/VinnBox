@@ -48,7 +48,7 @@
         margin-bottom: 2rem;
         text-align: center;
 
-        a.sign-up-link {
+        .sign-up-link {
           color: $primary-clr;
           &:hover {
             color: #d87272;
@@ -107,7 +107,7 @@
       }
     }
 
-    a.forgot-pass-link {
+    .forgot-pass-link {
       cursor: pointer;
       color: #c1bcff;
       margin-left: auto;
