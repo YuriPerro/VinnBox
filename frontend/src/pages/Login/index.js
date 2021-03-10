@@ -87,10 +87,15 @@ const Login = () => {
 
   return (
     <div className="login-wrapper">
-      <BaseModal title={"Adicionar Template"} visibility={openModal} setVisibility={setOpenModal}>
+      <BaseModal title={"Recuperar Senha"} visibility={openModal} setVisibility={setOpenModal}>
         {!showPass ? (
           <>
-            <input placeholder="Digite seu email de recuperação" id="recEmail" />
+            <input
+              id="recEmail"
+              type="email"
+              name="email"
+              placeholder="Digite seu email de recuperação"
+            />
             <BaseButton onClick={() => recPassword()} type={"button"}>
               Recuperar senha
             </BaseButton>
@@ -115,7 +120,9 @@ const Login = () => {
           </>
         )}
       </BaseModal>
+
       <img src={VinnBoxLogo} width={90} height={60} style={{ alignSelf: "center" }} alt="logo" />
+
       <div className="card">
         <h2 className="title">Faça login</h2>
         <div className="body">
