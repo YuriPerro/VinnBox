@@ -4,7 +4,6 @@ import "./styles.scss";
 import { Link, useLocation } from "wouter";
 import { BaseButton } from "../../components";
 import dividerCard from "../../assets/images/card-divider.png";
-import footerImgLogin from "../../assets/images/login-footer-img.png";
 import VinnBoxLogo from "../../assets/images/VINNBOX.png";
 
 import Cookies from "js-cookie";
@@ -105,8 +104,6 @@ const Cadastro = () => {
         <div draggable="false" className="aside-bg-img right" />
         <div draggable="false" className="aside-bg-img left" />
       </div>
-
-      <img draggable="false" className="footer-img" src={footerImgLogin} alt="background draw" />
     </div>
   );
 };
