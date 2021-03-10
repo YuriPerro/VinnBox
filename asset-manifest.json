@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/VinnBox/static/css/main.4e36f7d6.chunk.css",
-    "main.js": "/VinnBox/static/js/main.d3c42b25.chunk.js",
-    "main.js.map": "/VinnBox/static/js/main.d3c42b25.chunk.js.map",
+    "main.js": "/VinnBox/static/js/main.fef3bb48.chunk.js",
+    "main.js.map": "/VinnBox/static/js/main.fef3bb48.chunk.js.map",
     "runtime-main.js": "/VinnBox/static/js/runtime-main.fcb4c8ce.js",
     "runtime-main.js.map": "/VinnBox/static/js/runtime-main.fcb4c8ce.js.map",
     "static/js/2.57edc505.chunk.js": "/VinnBox/static/js/2.57edc505.chunk.js",
@@ -25,6 +25,6 @@
     "static/js/runtime-main.fcb4c8ce.js",
     "static/js/2.57edc505.chunk.js",
     "static/css/main.4e36f7d6.chunk.css",
-    "static/js/main.d3c42b25.chunk.js"
+    "static/js/main.fef3bb48.chunk.js"
   ]
 }
