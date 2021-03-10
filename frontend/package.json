@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://yuriperro.github.io/VinnBox",
   "dependencies": {
+    "js-cookie": "^2.2.1",
     "node-sass": "^4.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
