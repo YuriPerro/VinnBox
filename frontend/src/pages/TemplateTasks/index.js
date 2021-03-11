@@ -130,7 +130,7 @@ const TemplateTasks = () => {
   return (
     template && (
       <div className="template-tasks-wrapper">
-        <SideBar openModal={openModalCreateTask} />
+        <SideBar openModal={openModalCreateTask} entityName="tarefa" />
         <Search />
 
         <section className="template-info">

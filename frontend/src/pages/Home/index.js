@@ -44,7 +44,7 @@ function Home() {
 
   return (
     <div className="home-wrapper">
-      <SideBar openModal={() => setMdVisibility(true)} />
+      <SideBar openModal={() => setMdVisibility(true)} entityName="template" />
       <Search />
 
       <BaseModal
